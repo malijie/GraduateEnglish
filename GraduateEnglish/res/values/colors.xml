@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>  
+    <item type="color" name="main_layout_bg">#E4E4E4</item>
+    <item type="color" name="bottom_textview_selected">#1C9881</item>
+    <item type="color" name="bottom_textview_normal">#767472</item>
+    <item type="color" name="words_layout_bg">#F5F5F5</item>
+    <item type="color" name="words_font_normal">#1C9881</item>
+    <item type="color" name="words_font_selected">#006600</item>
+    <item type="color" name="symbol_font">#767472</item> 
+    <item type="color" name="example_font">#767472</item>
+    <item type="color" name="font_white">#FFFFFF</item>
+    <item type="color" name="word_button_delete_normal">#9E2020</item>
+    <item type="color" name="word_button_delete_selected">#CC0000</item>
+    <item type="color" name="word_button_kown">#B2B0AE</item>
+    <item type="color" name="button_bg_gray">#F9F9F9</item>
+    <item type="color" name="button_bg_black">#212121</item>
+    <item type="color" name="textview_light_green">#D0F2E8</item>
+</resources>

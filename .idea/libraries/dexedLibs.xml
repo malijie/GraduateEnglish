@@ -1,0 +1,18 @@
+<component name="libraryTable">
+  <library name="dexedLibs">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/GraduateEnglish/bin/dexedLibs/android-support-v7-appcompat-427fe35aae779b80b82f5c833cb949b9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/GraduateEnglish/bin/dexedLibs/AppOffer_2.2.0-1ae24966370d6693f24fa83271a471c4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/GraduateEnglish/bin/dexedLibs/android-support-v13-a3137a2deeafe4e5eb33eecdda65a478.jar!/" />
+      <root url="jar://$PROJECT_DIR$/GraduateEnglish/bin/dexedLibs/appcompat_v7_4-0ce312e1565f97a417e2d5e15624e578.jar!/" />
+      <root url="jar://$PROJECT_DIR$/GraduateEnglish/bin/dexedLibs/android-support-v4-90e83d5e94ba5c278481dccf9ad0cca2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/GraduateEnglish/bin/dexedLibs/android-support-v7-appcompat-88e9971ae33eb64b43c3c13d07ba7e08.jar!/" />
+      <root url="jar://$PROJECT_DIR$/GraduateEnglish/bin/dexedLibs/android-support-v7-appcompat-db4c3b6d452b20aba33f55842d583ee3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/GraduateEnglish/bin/dexedLibs/android-support-v7-appcompat-2f36dd0b9cf59e007ed3b2ff599ed81f.jar!/" />
+      <root url="jar://$PROJECT_DIR$/GraduateEnglish/bin/dexedLibs/AppOffer_2.2.0-186ea53708e6055c6cfafc06a17f1b78.jar!/" />
+      <root url="jar://$PROJECT_DIR$/GraduateEnglish/bin/dexedLibs/android-support-v7-appcompat-19802c7e04e90c654c8764e6b2a77e4a.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

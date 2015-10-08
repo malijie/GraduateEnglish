@@ -1,0 +1,58 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/word_list_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${packageName}.${activityClass}">
+    <RelativeLayout 
+        android:layout_width="match_parent"
+    	android:layout_height="130dip"
+    	android:layout_marginLeft="10dip"
+    	android:layout_marginTop="5dip"
+    	android:layout_marginRight="10dip">
+        <TextView
+	        android:id="@id/search_item_text_word"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginTop="5dip"
+	        android:text="gloomy"
+	        android:textSize="25sp"
+	        android:textColor="@color/words_font_normal"/>
+
+        <TextView
+            android:id="@id/search_item_text_symbols"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/search_item_text_word"
+            android:layout_marginLeft="10dip"
+            android:layout_alignBottom="@id/search_item_text_word"
+            android:text="[fasfa]"
+            android:textColor="@color/word_button_kown"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@id/search_item_text_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lines="1" 
+            android:ellipsize="end"
+            android:layout_marginTop="10dip"
+            android:layout_below="@id/search_item_text_word"
+            android:text="按时打算打算带阿斯达上大大飒飒大上大三撒打算打算带的"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/example_font" />
+        <TextView
+            android:id="@id/search_item_text_example"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lines="2" 
+            android:ellipsize="end"
+            android:layout_marginTop="7dip"
+            android:layout_below="@id/search_item_text_content"
+            android:text="按时打算打算带阿斯达上大大飒飒大上大三撒打算打算带的"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/example_font" />
+
+    </RelativeLayout>
+    
+</RelativeLayout>

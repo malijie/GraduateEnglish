@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/GraduateEnglish/src/com/english/activity/HelpAndTipActivity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/GraduateEnglish/src/com/english/activity/MainActivity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/GraduateEnglish/src/com/english/activity/SearchActivity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/GraduateEnglish/src/com/english/activity/WelcomeActivity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/GraduateEnglish/src/com/english/activity/WordsDetailActivity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/GraduateEnglish/src/com/english/ad/AdUtil.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/GraduateEnglish/src/com/english/adapter/ReadingAdapter.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/GraduateEnglish/src/com/english/config/Profile.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/GraduateEnglish/src/com/english/fragments/WordsFragment.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/GraduateEnglish/src/com/english/util/FileUtil.java" charset="GBK" />
+  </component>
+</project>

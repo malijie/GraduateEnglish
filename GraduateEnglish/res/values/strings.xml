@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">考研英语</string>
+    <string name="hello_world">Hello world!</string>
+	<string name="bottom_button_words">单词</string>
+	<string name="bottom_button_reading">阅读</string>
+	<string name="bottom_button_writing">写作</string>
+	<string name="bottom_button_setting">设置</string>
+	<string name="actionbar_search">搜单词</string>
+	<string name="actionbar_review">查生词</string>
+	<string name="actionbar_setting">设置</string>
+	<string name="word_konwn">认识</string>
+	<string name="word_notkonwn">不认识</string>
+</resources>

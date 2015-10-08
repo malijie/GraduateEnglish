@@ -1,0 +1,57 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/word_list_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${packageName}.${activityClass}">
+    <RelativeLayout 
+        android:layout_width="match_parent"
+    	android:layout_height="120dip"
+    	android:layout_marginLeft="10dip"
+    	android:layout_marginTop="5dip"
+    	android:layout_marginRight="10dip">
+        <ImageView 
+            android:id="@id/reading_list_item_image_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
+            android:layout_marginTop="7dip"
+            android:src="@drawable/listview_reading"/>
+        <TextView
+	        android:id="@id/reading_list_item_text_date"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:lines="2"
+	        android:layout_marginTop="10dip"
+	        android:text="1994/01"
+	        android:textColor="@color/word_button_kown"
+	        android:layout_below="@id/reading_list_item_image_icon"/>
+
+        <TextView
+            android:id="@id/reading_list_item_text_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/reading_list_item_image_icon"
+            android:layout_toRightOf="@id/reading_list_item_image_icon"
+            android:layout_marginLeft="30dip"
+            android:textColor="@color/words_font_normal"
+            android:text="1994年考研英语阅读理解真题"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@id/reading_list_item_text_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lines="4" 
+            android:layout_marginTop="5dip" 
+            android:ellipsize="end"
+            android:layout_marginLeft="20dip"
+            android:layout_below="@id/reading_list_item_text_title"
+            android:layout_toRightOf="@id/reading_list_item_text_date"
+            android:textColor="@color/example_font" 
+            android:textSize="15sp"
+            android:text="PassageA The American economic system is oanized The American economic system is oanized around a basically private-enterpriseThe American economic system is oanized around a basically private-enterpriseThe American economic system is oanized around a basically private-enterpriseThe American economic system is oanized around a basically private-enterpriseThe American economic system is oanized around a basically private-enterpriseThe American economic system is oanized around a basically private-enterpriseThe American economic system is oanized around a basically private-enterpriseThe American economic system is oanized around a basically private-enterpriseThe American economic system is oanized around a basically private-enterprise a basically private-enterprise"/>
+       
+    </RelativeLayout>
+    
+</RelativeLayout>

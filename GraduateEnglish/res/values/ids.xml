@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="main_layout_button_words"></item>
+    <item type="id" name="main_layout_frame_content"></item>
+    <item type="id" name="main_layout_button_reading"></item>
+    <item type="id" name="main_layout_button_setting"></item>
+    <item type="id" name="main_layout_button_writing"></item>
+    <item type="id" name="main_layout_textview_words"></item>
+    <item type="id" name="main_layout_textview_reading"></item>
+    <item type="id" name="main_layout_textview_writing"></item>
+    <item type="id" name="main_layout_textview_setting"></item>
+    <item type="id" name="main_layout_relativelayout_words"></item>
+    <item type="id" name="main_layout_relativelayout_reading"></item>
+    <item type="id" name="main_layout_relativelayout_writing"></item>
+    <item type="id" name="main_layout_relativelayout_setting"></item>
+    
+    					<!-- actionbar -->
+    <item type="id" name="actionbar_search"></item>					
+    <item type="id" name="actionbar_review"></item>	
+    <item type="id" name="actionbar_setting"></item>
+    					<!-- words list -->
+	<item type="id" name="listview_words"></item>				
+	<item type="id" name="list_item_text_lesson"></item>
+	<item type="id" name="list_item_text_accuracy"></item>
+	<item type="id" name="list_item_text_date"></item>
+	<item type="id" name="list_item_image_status"></item>
+	<item type="id" name="list_item_text_abstract"></item>
+	
+						<!-- words layout -->
+	<item type="id" name="word_detail_word"></item>
+	<item type="id" name="word_detail_symbol"></item>
+	<item type="id" name="word_detail_add"></item>
+	<item type="id" name="word_detail_content"></item>
+	<item type="id" name="word_detail_example1"></item>
+	<item type="id" name="word_detail_example2"></item>
+	<item type="id" name="word_detail_image_note"></item>
+	<item type="id" name="word_detail_button_note"></item>
+	<item type="id" name="word_detail_button_next"></item>
+	<item type="id" name="word_detail_button_godetail1"></item>
+	<item type="id" name="word_detail_button_godetail2"></item>
+	<item type="id" name="word_detail_text_progress"></item>
+	<item type="id" name="word_detail_content_layout"></item>
+	<item type="id" name="word_detail_ad_layout"></item>
+	<item type="id" name="word_detail_example1_layout"></item>
+	<item type="id" name="word_detail_example2_layout"></item>
+	<item type="id" name="word_detail_layout_rightorwrong"></item>
+	<item type="id" name="word_detail_layout_knownornot"></item>
+	<item type="id" name="word_detail_text_example"></item>
+	<item type="id" name="word_detail_button_known"></item>
+	<item type="id" name="word_detail_button_notknown"></item>
+	<item type="id" name="word_detail_button_right"></item>
+	<item type="id" name="word_detail_button_wrong"></item>
+	
+						<!-- words example -->
+	<item type="id" name="word_example_word"></item>		
+	<item type="id" name="word_example_symbol"></item>
+	<item type="id" name="word_example_add"></item>
+	<item type="id" name="word_example_content"></item>
+	<item type="id" name="word_example_detail"></item>
+	<item type="id" name="word_example_button_delete"></item>
+	
+						<!-- exit dialog -->
+	<item type="id" name="dialog_exit_text_title"></item>		
+	<item type="id" name="dialog_exit_view_line"></item>
+	<item type="id" name="dialog_exit_button_confirm"></item>
+	<item type="id" name="dialog_exit_button_cancel"></item>
+	<item type="id" name="dialog_exit_text_content"></item>
+	
+						<!-- unkonwn_words -->
+	<item type="id" name="unkonwn_words_listview"></item>
+	<item type="id" name="unkonwn_words_item_text_word"></item>
+	<item type="id" name="unkonwn_words_item_text_symbol"></item>
+	<item type="id" name="unkonwn_words_item_text_content"></item>
+	<item type="id" name="unkonwn_words_item_text_example"></item>
+	<item type="id" name="unkonwn_words_item_button_delete"></item>
+	
+						<!-- unkonwn_words_detail -->
+	<item type="id" name="unkonwn_words_detail_text_word"></item>
+	<item type="id" name="unkonwn_words_detail_text_symbol"></item>
+	<item type="id" name="unkonwn_words_detail_text_content"></item>
+	<item type="id" name="unkonwn_words_detail_text_example"></item>
+	<item type="id" name="unkonwn_words_detail_button_delete"></item>
+	<item type="id" name="unkonwn_words_detail_layout_ad"></item>
+	
+					<!-- loading dialog -->
+	<item type="id" name="dialog_loading_progressbar_loading"></item>		
+	<item type="id" name="dialog_loading_text_loading"></item>
+	
+					<!-- reading list -->
+	<item type="id" name="listview_reading"></item>
+	<item type="id" name="reading_list_item_image_icon"></item>
+	<item type="id" name="reading_list_item_text_date"></item>
+	<item type="id" name="reading_list_item_text_title"></item>
+	<item type="id" name="reading_list_item_text_content"></item>
+	
+					<!-- reading_detail -->
+	<item type="id" name="reading_detail_text_title"></item>
+	<item type="id" name="reading_detail_text_content"></item>
+	<item type="id" name="reading_detail_button_answer"></item>
+	<item type="id" name="reading_detail_button_previous"></item>
+	<item type="id" name="reading_detail_button_next"></item>
+	<item type="id" name="reading_detail_text_answer"></item>
+	<item type="id" name="reading_detail_layout_ad1"></item>	
+	<item type="id" name="reading_detail_layout_ad2"></item>			
+			<!-- reading answer -->
+	<item type="id" name="reading_answer_text_title"></item>
+	<item type="id" name="reading_answer_text_content"></item>
+	
+					<!-- writting list -->
+	<item type="id" name="listview_writting"></item>
+	<item type="id" name="writting_list_item_image_icon"></item>
+	<item type="id" name="writting_list_item_text_date"></item>
+	<item type="id" name="writting_list_item_text_title"></item>
+	<item type="id" name="writting_list_item_text_content"></item>
+	<item type="id" name="writting_list_item_text_part"></item>
+	
+					<!-- writting detail -->
+	<item type="id" name="writting_detail_image_content"></item>
+	<item type="id" name="writting_detail_text_title"></item>
+	<item type="id" name="writting_detail_text_content"></item>
+	<item type="id" name="writting_detail_button_answer"></item>
+	<item type="id" name="writting_detail_layout_ad"></item>
+	<item type="id" name="writting_answer_detail_text_title"></item>
+	<item type="id" name="writting_answer_detail_text_answer"></item>
+	<item type="id" name="writting_answer_detail_layout_ad"></item>
+	
+					<!-- setting layout -->
+	<item type="id" name="setting_button_font_word"></item>
+	<item type="id" name="setting_button_font_reading"></item>
+	<item type="id" name="setting_button_font_writting"></item>
+	<item type="id" name="setting_button_font_content"></item>
+	<item type="id" name="setting_button_more_word"></item>
+	<item type="id" name="setting_button_more_reading"></item>
+	<item type="id" name="setting_button_more_writting"></item>
+	<item type="id" name="setting_button_more_content"></item>
+	<item type="id" name="setting_button_mode_dayornight"></item>
+	<item type="id" name="setting_button_more_dayornight"></item>
+	<item type="id" name="setting_button_help"></item>
+	<item type="id" name="setting_button_more_help"></item>
+	<item type="id" name="setting_button_more_feedback"></item>
+	<item type="id" name="setting_button_exit"></item>
+	<item type="id" name="setting_button_update"></item>
+	<item type="id" name="setting_button_feedback"></item>
+	
+					<!-- exit dialog -->
+	<item type="id" name="dialog_font_text_title"></item>		
+	<item type="id" name="dialog_font_view_line"></item>
+	<item type="id" name="dialog_font_button_confirm"></item>
+	<item type="id" name="dialog_font_button_cancel"></item>
+	<item type="id" name="dialog_font_text_content"></item>	
+	<item type="id" name="dialog_font_radio_big"></item>
+	<item type="id" name="dialog_font_radio_middle"></item>	
+	<item type="id" name="dialog_font_radio_small"></item>		
+	
+					<!-- Search Layout -->
+	<item type="id" name="search_layout_edittext_input"></item>		
+	<item type="id" name="search_layout_button_search"></item>						
+	<item type="id" name="search_layout_listview_result"></item>	
+	<item type="id" name="search_layout_layout_ad"></item>
+	
+					<!-- Search List item -->					
+	<item type="id" name="search_item_text_word"></item>
+	<item type="id" name="search_item_text_example"></item>
+	<item type="id" name="search_item_text_symbols"></item>
+	<item type="id" name="search_item_text_content"></item>	
+	
+					<!-- search detail -->
+	<item type="id" name="search_detail_text_word"></item>
+	<item type="id" name="search_detail_text_symbols"></item>
+	<item type="id" name="search_detail_text_content"></item>
+	<item type="id" name="search_detail_text_example1"></item>
+	<item type="id" name="search_detail_text_example2"></item>
+	<item type="id" name="search_detail_layout_ad1"></item>	
+	<item type="id" name="search_detail_layout_ad2"></item>	
+	<item type="id" name="search_detail_layout_example1"></item>	
+	<item type="id" name="search_detail_layout_example2"></item>	
+	<item type="id" name="search_detail_button_add"></item>		
+					
+</resources>

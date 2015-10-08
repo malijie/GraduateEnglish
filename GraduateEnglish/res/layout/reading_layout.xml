@@ -1,0 +1,17 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${packageName}.${activityClass}">
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/main_layout_bg">
+        <ListView 
+       	    android:id="@id/listview_reading"
+       	    android:layout_width="match_parent"
+       	    android:layout_height="match_parent"
+       	    android:padding="5dip"
+       	    android:cacheColorHint="#00000000"/> 
+    </LinearLayout>
+</RelativeLayout>

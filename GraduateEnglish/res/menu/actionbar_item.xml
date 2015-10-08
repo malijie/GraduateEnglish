@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.actionbartest.MainActivity" >
+   <item  
+        android:id="@id/actionbar_search"  
+        android:icon="@drawable/button_search_selector"  
+        android:showAsAction="ifRoom|collapseActionView"  
+        android:title="@string/actionbar_search" />  
+    <item
+        android:id="@id/actionbar_review"
+        android:icon="@drawable/button_word_selector"
+        android:showAsAction="always"
+        android:title="@string/actionbar_review"/>
+</menu>  
