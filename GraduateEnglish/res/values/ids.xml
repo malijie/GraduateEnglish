@@ -50,8 +50,10 @@
 	<item type="id" name="word_detail_button_notknown"></item>
 	<item type="id" name="word_detail_button_right"></item>
 	<item type="id" name="word_detail_button_wrong"></item>
-	
-						<!-- words example -->
+	<item type="id" name="word_detail_button_volume"></item>
+
+
+	<!-- words example -->
 	<item type="id" name="word_example_word"></item>		
 	<item type="id" name="word_example_symbol"></item>
 	<item type="id" name="word_example_add"></item>

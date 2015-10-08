@@ -2,6 +2,9 @@ package com.english.model;
 
 import java.io.Serializable;
 
+/**
+ * 单词实体类
+ */
 public class WordInfo implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private int id;

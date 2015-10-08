@@ -25,14 +25,14 @@
 	        	android:gravity="center"
 	        	android:textColor="@color/symbol_font"/>
 	    </LinearLayout>    
-        <LinearLayout  
+        <LinearLayout
 	        android:layout_width="match_parent"
 	        android:layout_height="0dip"
 	        android:layout_weight="3"
 	        android:layout_marginTop="8dip"
 	        android:background="@color/main_layout_bg"
 	        android:orientation="horizontal">
-	        <LinearLayout  
+	        <FrameLayout
 		        android:layout_width="0dip"
 		        android:layout_height="match_parent"
 		        android:layout_weight="1"
@@ -54,8 +54,14 @@
 	        	    android:textColor="@color/symbol_font"
 	        	    android:textSize="16dip"
 	        	    android:layout_gravity="center_vertical"
-	        	    android:layout_marginLeft="5dip"/>     
-        	</LinearLayout>
+	        	    android:layout_marginLeft="100dip"/>
+        		<ImageButton
+					android:id="@id/word_detail_button_volume"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_gravity="right|center_vertical"
+					android:background="@drawable/word_volume"/>
+			</FrameLayout>
         	
         </LinearLayout>
        

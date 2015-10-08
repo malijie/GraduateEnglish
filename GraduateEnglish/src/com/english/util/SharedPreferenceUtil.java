@@ -47,6 +47,6 @@ public class SharedPreferenceUtil {
 	 */
 	public static int loadLessonProgress(Context context,int lesson){
 		SharedPreferences sp = context.getSharedPreferences(SP_FILE_NAME,Context.MODE_PRIVATE);
-		return sp.getInt(lesson + "",1);
+		return sp.getInt(lesson + "",0);
 	}
 }
