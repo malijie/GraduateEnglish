@@ -9,11 +9,14 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import cn.waps.AppConnect;
 
 import com.english.activity.HelpAndTipActivity;
+import com.english.pay.PayManager;
 import com.english.phone.R;
+import com.english.util.Logger;
 import com.english.widget.FontDialog;
 
 public class SettingFragment extends Fragment implements OnClickListener{
@@ -90,7 +93,8 @@ public class SettingFragment extends Fragment implements OnClickListener{
 			setWrittingFont();
 			break;
 		case R.id.setting_button_help:
-			showHelpTip();
+//			showHelpTip();
+			PayManager.getInstance().pay((float)0.2,getActivity());
 			break;
 		  
 		case R.id.setting_button_more_help:
@@ -99,12 +103,12 @@ public class SettingFragment extends Fragment implements OnClickListener{
 		
 		case R.id.setting_button_exit:
 			getActivity().finish();
-			break; 
+			break;
 		case R.id.setting_button_update:
 			AppConnect.getInstance(getActivity()).checkUpdate(getActivity());
 			break;
 		case R.id.setting_button_feedback:
-			AppConnect.getInstance(getActivity()).showFeedback(getActivity()	); //ÏÔÊ¾ÓÃ»§·´À¡
+			AppConnect.getInstance(getActivity()).showFeedback(getActivity()	); //ï¿½ï¿½Ê¾ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½
 			break;
 		}  
 	}

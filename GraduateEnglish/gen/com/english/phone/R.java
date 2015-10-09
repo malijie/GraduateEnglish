@@ -1123,7 +1123,7 @@ containing a value of this type.
         public static final int dialog_button_exit_comfirm_selector=0x7f02007c;
         public static final int exit_button=0x7f02007d;
         public static final int ic_launcher=0x7f02007e;
-        public static final int icon=0x7f02007f;
+        public static final int icon_app =0x7f02007f;
         public static final int listview_reading=0x7f020080;
         public static final int listview_word_closed=0x7f020081;
         public static final int listview_word_opened=0x7f020082;

@@ -16,14 +16,19 @@ public class ExitDialog extends AlertDialog implements OnClickListener{
 	private Button butCancel = null;
 	private Activity mActivity = null;
 	private EnglishDatabaseHelper mHelper = null;
-	
+
+	public ExitDialog(Activity context){
+		super(context);
+		mActivity = context;
+	}
+
 	public ExitDialog(Activity context, EnglishDatabaseHelper eHelper) {
 		super(context);
 		mActivity = context;
 		mHelper = eHelper;
 	}
-	
-	@Override 
+
+	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		super.setContentView(R.layout.exit_dialog);

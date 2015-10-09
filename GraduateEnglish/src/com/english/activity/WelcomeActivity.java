@@ -13,7 +13,7 @@ import android.widget.ImageView;
 import cn.waps.AppConnect;
 
 import com.english.phone.R;
-import com.english.util.FileUtil;
+import com.english.util.Util;
 
 public class WelcomeActivity extends Activity{ 
 
@@ -62,6 +62,6 @@ public class WelcomeActivity extends Activity{
     	
 	}
 	private void initData() {
-		FileUtil.copyDB2Phone(WelcomeActivity.this);
+		Util.copyDB2Phone(WelcomeActivity.this);
 	}
 }

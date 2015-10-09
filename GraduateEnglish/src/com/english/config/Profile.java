@@ -16,4 +16,8 @@ public class Profile {
 	
 	/**	 阅读理解结束年份	 */
 	public static final int READING_END_DATE = 2014;
+
+	//----------------支付相关常量-----------------------
+	public static final String GOODS_ITEM_NAME = "2015考研英语试题";
+	public static final String GOODS_ITEM_DESCRIPTION = "2015考研英语试题购买，总价1元";
 }

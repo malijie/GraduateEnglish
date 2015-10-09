@@ -2,81 +2,132 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.english.phone"
     android:versionCode="1"
-    android:versionName="1.2" >
+    android:versionName="1.2">
 
-    <uses-sdk 
+    <uses-sdk
         android:minSdkVersion="11"
-        android:targetSdkVersion="15" /> 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-	<uses-permission android:name="android.permission.INTERNET"/>
+        android:targetSdkVersion="15" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.GET_TASKS" /> 
-	
-    <meta-data android:name="APP_ID" android:value="469378b902a681c98f5a095ddccf8223"/>
-	<meta-data android:name="APP_PID" android:value="default"/> 
+    <uses-permission android:name="android.permission.GET_TASKS" />
+
+    <!-- 以下为银行卡支付需多添加的权限 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+
+    <meta-data
+        android:name="APP_ID"
+        android:value="469378b902a681c98f5a095ddccf8223" />
+    <!--<meta-data-->
+        <!--android:name="APP_PID"-->
+        <!--android:value="default" />-->
+
     <application
         android:allowBackup="true"
-        android:icon="@drawable/icon"
+        android:icon="@drawable/icon_app"
         android:label="@string/app_name"
-        >
-        <activity 
-	       android:name="com.english.activity.WelcomeActivity"
-	       android:label="@string/app_name" 
-	       android:theme="@style/CustomActionBarTheme">
-	       
-	       		<intent-filter>
-	                <action android:name="android.intent.action.MAIN" />
-	                <category android:name="android.intent.category.LAUNCHER" />
-            	</intent-filter>
-	    </activity>   
+        android:name="com.english.English">
+        <activity
+            android:name="com.english.activity.WelcomeActivity"
+            android:label="@string/app_name"
+            android:theme="@style/CustomActionBarTheme">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name="com.english.activity.MainActivity"
-            android:theme="@style/CustomActionBarTheme" >
-        </activity> 
-        
-        <activity 
-             android:name="com.english.activity.WordsDetailActivity"
-             android:theme="@style/CustomActionBarTheme" /> 
-       <activity 
-             android:name="com.english.activity.WordExampleDetailActivity"
-             android:theme="@style/CustomActionBarTheme" /> 
-       <activity 
-             android:name="com.english.activity.WordsKnownOrNotActivity"
-             android:theme="@style/CustomActionBarTheme" />    
-       <activity 
-	       android:name="com.english.activity.TestActivity"
-	       android:theme="@style/CustomActionBarTheme" />   
-       <activity 
-	       android:name="com.english.activity.UnknownWordActivity"
-	       android:theme="@style/CustomActionBarTheme" 
-	       android:launchMode="singleTask"/>  
-	   <activity 
-	       android:name="com.english.activity.UnknownWordDetailActivity"
-	       android:theme="@style/CustomActionBarTheme" />      
-	    <activity 
-	       android:name="com.english.activity.ReadingDetailActivity"
-	       android:theme="@style/CustomActionBarTheme" /> 
-	   <activity 
-	       android:name="com.english.activity.ReadingAnswerActivity"
-	       android:theme="@style/CustomActionBarTheme" /> 
-       <activity  
-	       android:name="com.english.activity.WrittingDetailActivity"
-	       android:theme="@style/CustomActionBarTheme" />      
-	    <activity 
-	       android:name="com.english.activity.WrittingAnswerActivity"
-	       android:theme="@style/CustomActionBarTheme" /> 
-       <activity 
-	       android:name="com.english.activity.SearchActivity"
-	       android:theme="@style/CustomActionBarTheme" /> 
-	   <activity 
-	       android:name="com.english.activity.SearchDetailActivity"
-	       android:theme="@style/CustomActionBarTheme" />   
-	       
-	   <activity 
-	       android:name="com.english.activity.HelpAndTipActivity"
-	       android:theme="@style/CustomActionBarTheme" />   
-    </application> 
+            android:theme="@style/CustomActionBarTheme"></activity>
+
+        <activity
+            android:name="com.english.activity.WordsDetailActivity"
+            android:theme="@style/CustomActionBarTheme" />
+        <activity
+            android:name="com.english.activity.WordExampleDetailActivity"
+            android:theme="@style/CustomActionBarTheme" />
+        <activity
+            android:name="com.english.activity.WordsKnownOrNotActivity"
+            android:theme="@style/CustomActionBarTheme" />
+        <activity
+            android:name="com.english.activity.TestActivity"
+            android:theme="@style/CustomActionBarTheme" />
+        <activity
+            android:name="com.english.activity.UnknownWordActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/CustomActionBarTheme" />
+        <activity
+            android:name="com.english.activity.UnknownWordDetailActivity"
+            android:theme="@style/CustomActionBarTheme" />
+        <activity
+            android:name="com.english.activity.ReadingDetailActivity"
+            android:theme="@style/CustomActionBarTheme" />
+        <activity
+            android:name="com.english.activity.ReadingAnswerActivity"
+            android:theme="@style/CustomActionBarTheme" />
+        <activity
+            android:name="com.english.activity.WrittingDetailActivity"
+            android:theme="@style/CustomActionBarTheme" />
+        <activity
+            android:name="com.english.activity.WrittingAnswerActivity"
+            android:theme="@style/CustomActionBarTheme" />
+        <activity
+            android:name="com.english.activity.SearchActivity"
+            android:theme="@style/CustomActionBarTheme" />
+        <activity
+            android:name="com.english.activity.SearchDetailActivity"
+            android:theme="@style/CustomActionBarTheme" />
+
+        <activity
+            android:name="com.english.activity.HelpAndTipActivity"
+            android:theme="@style/CustomActionBarTheme" />
+
+        <!--                            支付需要权限开始                            	-->
+        <activity
+            android:name="com.wanpu.pay.PayView"
+            android:configChanges="keyboardHidden|orientation" />
+        <activity
+            android:name="com.payeco.android.plugin.PayecoPluginLoadingActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name="com.payeco.android.plugin.PayecoOrderDetailActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name="com.payeco.android.plugin.PayecoPayResultActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name="com.payeco.android.plugin.PayecoWebViewActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name="com.payeco.android.plugin.PayecoRiskControlActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name="com.unionpay.uppay.PayActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.UPPay" />
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind" />
+        <!--                    支付需要权限结束                            -->
+    </application>
 
 </manifest>

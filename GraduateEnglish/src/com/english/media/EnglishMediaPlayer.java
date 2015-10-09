@@ -4,10 +4,7 @@ import android.content.Context;
 import android.content.res.AssetFileDescriptor;
 import android.media.MediaPlayer;
 
-import com.english.util.Logger;
-
 import java.io.IOException;
-import java.util.Objects;
 
 /**
  * Created by vic_ma on 15/10/8.
@@ -44,9 +41,9 @@ public class EnglishMediaPlayer {
     public void playTheWordTune(String wordName){
         mMediaPlayer.reset();
         try {
-            AssetFileDescriptor afd = mContext.getAssets().openFd(wordName + ".wav");
+            AssetFileDescriptor afd = mContext.getAssets().openFd(wordName.trim() + ".wav");
             mMediaPlayer.setDataSource(afd.getFileDescriptor(),
-                                        afd.getStartOffset(),afd.getLength());
+                    afd.getStartOffset(),afd.getLength());
             mMediaPlayer.prepare();
             mMediaPlayer.start();
         } catch (IOException e) {

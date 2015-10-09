@@ -193,7 +193,6 @@ public class WordsDetailActivity extends Activity implements OnClickListener{
 		case R.id.word_detail_button_volume:
 			//≤•∑≈µ•¥ “Ù∆µ
 			mEnglishMediaPlayer.playTheWordTune(mWordInfo.getWord());
-
 			break;
 		case R.id.word_detail_add:
 			

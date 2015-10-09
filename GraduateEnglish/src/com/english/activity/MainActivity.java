@@ -25,6 +25,7 @@ import com.english.fragments.WordsFragment;
 import com.english.fragments.WritingFragment;
 import com.english.phone.R;
 import com.english.config.Profile;
+import com.english.widget.ExitDialog;
 
 public class MainActivity extends Activity implements OnClickListener{
 	
@@ -233,15 +234,18 @@ public class MainActivity extends Activity implements OnClickListener{
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		  if(keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN){   
-		        if((System.currentTimeMillis()-exitTime) > 2000){  
-		            Toast.makeText(getApplicationContext(), "再按一次退出程序", Toast.LENGTH_SHORT).show();                                
-		            exitTime = System.currentTimeMillis();    
-		        } else {
-		        	AdUtil.closeAd(MainActivity.this);
-		            finish();
-		            System.exit(0);
-		        } 
-		        return true;   
+//		        if((System.currentTimeMillis()-exitTime) > 2000){
+//		            Toast.makeText(getApplicationContext(), "再按一次退出程序", Toast.LENGTH_SHORT).show();
+//		            exitTime = System.currentTimeMillis();
+//		        } else {
+//		        	AdUtil.closeAd(MainActivity.this);
+//		            finish();
+//		            System.exit(0);
+//		        }
+//		        return true;
+
+			  ExitDialog exitDialog = new ExitDialog(this);
+			  exitDialog.show();
 		    }
 		
 		return super.onKeyDown(keyCode, event);
