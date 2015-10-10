@@ -1159,13 +1159,13 @@ containing a value of this type.
         public static final int collapseActionView=0x7f05000d;
         public static final int default_activity_button=0x7f0500b5;
         public static final int dialog=0x7f05000e;
-        public static final int dialog_exit_button_cancel=0x7f050050;
-        public static final int dialog_exit_button_confirm=0x7f05004f;
-        public static final int dialog_exit_text_content=0x7f050051;
+        public static final int dialog_button_cancel =0x7f050050;
+        public static final int dialog_button_confirm =0x7f05004f;
+        public static final int dialog_text_content =0x7f050051;
         /**  exit dialog 
          */
-        public static final int dialog_exit_text_title=0x7f05004d;
-        public static final int dialog_exit_view_line=0x7f05004e;
+        public static final int dialog_text_title =0x7f05004d;
+        public static final int dialog_view_line =0x7f05004e;
         public static final int dialog_font_button_cancel=0x7f050090;
         public static final int dialog_font_button_confirm=0x7f05008f;
         public static final int dialog_font_radio_big=0x7f050092;
@@ -1430,7 +1430,7 @@ containing a value of this type.
         public static final int abc_simple_decor=0x7f030017;
         public static final int activity_main=0x7f030018;
         public static final int answer_layout=0x7f030019;
-        public static final int exit_dialog=0x7f03001a;
+        public static final int alert_dialog_layout =0x7f03001a;
         public static final int font_dialog=0x7f03001b;
         public static final int help_or_tip_layout=0x7f03001c;
         public static final int load_dialog=0x7f03001d;

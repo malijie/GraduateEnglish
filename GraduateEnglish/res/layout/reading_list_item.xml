@@ -21,11 +21,19 @@
 	        android:id="@id/reading_list_item_text_date"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:lines="2"
 	        android:layout_marginTop="10dip"
 	        android:text="1994/01"
 	        android:textColor="@color/word_button_kown"
 	        android:layout_below="@id/reading_list_item_image_icon"/>
+
+
+        <ImageView
+            android:id="@id/reading_list_item_image_lock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dip"
+            android:layout_below="@id/reading_list_item_text_date"
+            android:background="@drawable/button_lock_selector"/>
 
         <TextView
             android:id="@id/reading_list_item_text_title"

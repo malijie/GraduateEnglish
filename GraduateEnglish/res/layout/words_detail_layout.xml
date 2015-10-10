@@ -60,7 +60,8 @@
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:layout_gravity="right|center_vertical"
-					android:background="@drawable/word_volume"/>
+					android:layout_marginRight="10dip"
+					android:background="@drawable/button_volume_selector"/>
 			</FrameLayout>
         	
         </LinearLayout>

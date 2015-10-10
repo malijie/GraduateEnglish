@@ -17,7 +17,16 @@ public class Profile {
 	/**	 阅读理解结束年份	 */
 	public static final int READING_END_DATE = 2014;
 
-	//----------------支付相关常量-----------------------
-	public static final String GOODS_ITEM_NAME = "2015考研英语试题";
-	public static final String GOODS_ITEM_DESCRIPTION = "2015考研英语试题购买，总价1元";
+	//----------------对话框相关常量---------------------
+	/**	退出对话框标题	 */
+	public static final String DIALOG_EXIT_TITLE = "退出？";
+	/**	退出对话框内容	 */
+	public static final String DIALOG_EXIT_MSG = "确定要退出吗？";
+	/**	支付对话框标题	 */
+	public static final String DIALOG_PAY_TITLE = "支付";
+	/**	支付对话框内容	 */
+	public static final String DIALOG_PAY_MSG = "支付1元便可查看最新试题";
+
+
+
 }

@@ -93,8 +93,7 @@ public class SettingFragment extends Fragment implements OnClickListener{
 			setWrittingFont();
 			break;
 		case R.id.setting_button_help:
-//			showHelpTip();
-			PayManager.getInstance().pay((float)0.2,getActivity());
+			showHelpTip();
 			break;
 		  
 		case R.id.setting_button_more_help:

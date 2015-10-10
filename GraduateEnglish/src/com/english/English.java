@@ -17,7 +17,9 @@ public class English extends Application{
     @Override
     public void onCreate() {
         super.onCreate();
-        PayConnect.getInstance("469378b902a681c98f5a095ddccf8223", "469378b902a681c98f5a095ddccf8223", getApplicationContext());
-
+        //获取上下文
+        mContext = getApplicationContext();
+        //初始化支付接口
+        PayManager.init(getApplicationContext());
     }
 }

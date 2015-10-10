@@ -62,11 +62,18 @@
 	<item type="id" name="word_example_button_delete"></item>
 	
 						<!-- exit dialog -->
-	<item type="id" name="dialog_exit_text_title"></item>		
-	<item type="id" name="dialog_exit_view_line"></item>
-	<item type="id" name="dialog_exit_button_confirm"></item>
-	<item type="id" name="dialog_exit_button_cancel"></item>
-	<item type="id" name="dialog_exit_text_content"></item>
+	<item type="id" name="dialog_text_title"></item>
+	<item type="id" name="dialog_text_content"></item>
+	<item type="id" name="dialog_view_line"></item>
+	<item type="id" name="dialog_button_confirm"></item>
+	<item type="id" name="dialog_button_cancel"></item>
+
+						<!-- pay dialog -->
+	<item type="id" name="dialog_pay_text_title"></item>
+	<item type="id" name="dialog_pay_view_line"></item>
+	<item type="id" name="dialog_pay_button_confirm"></item>
+	<item type="id" name="dialog_pay_button_cancel"></item>
+	<item type="id" name="dialog_pay_text_content"></item>
 	
 						<!-- unkonwn_words -->
 	<item type="id" name="unkonwn_words_listview"></item>
@@ -94,6 +101,7 @@
 	<item type="id" name="reading_list_item_text_date"></item>
 	<item type="id" name="reading_list_item_text_title"></item>
 	<item type="id" name="reading_list_item_text_content"></item>
+	<item type="id" name="reading_list_item_image_lock"></item>
 	
 					<!-- reading_detail -->
 	<item type="id" name="reading_detail_text_title"></item>

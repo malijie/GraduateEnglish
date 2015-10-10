@@ -23,7 +23,11 @@
     
     <style name="MyActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">  
         <item name="android:background">@color/main_layout_bg</item>  
-    </style>  
-  
+    </style>
+    <style name="DialogTheme" parent="android:Theme.DeviceDefault.Light.Dialog">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
     
 </resources>

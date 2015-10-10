@@ -16,11 +16,16 @@ import android.widget.ListView;
 
 import com.english.activity.ReadingDetailActivity;
 import com.english.adapter.ReadingAdapter;
+import com.english.pay.PayConst;
 import com.english.database.EnglishDBOperate;
 import com.english.database.EnglishDatabaseHelper;
+import com.english.inter.IDialogOnClickListener;
 import com.english.model.ReadingInfo;
+import com.english.pay.PayManager;
 import com.english.phone.R;
 import com.english.config.Profile;
+import com.english.util.Util;
+import com.wanpu.pay.PayConnect;
 
 public class ReadingFragment extends Fragment{
 
@@ -67,9 +72,24 @@ public class ReadingFragment extends Fragment{
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
-				Intent it = new Intent(ReadingFragment.this.getActivity(),ReadingDetailActivity.class);
-				it.putExtra("reading_info", (Serializable) allReadingInfo.get(position));
-				startActivity(it);
+				//最新的考研试题且没有购买过则弹出对话框
+				if(position == 0 && !PayManager.isCompleteReadingPay()){
+					//点击的是最新的试题，若没付费则弹出付费对话框
+					Util.showAlertDialog(getActivity(),Profile.DIALOG_PAY_TITLE,Profile.DIALOG_PAY_MSG,
+							new IDialogOnClickListener() {
+						@Override
+						public void onClick() {
+							//用户点击付费，跳转到付费界面
+							new PayManager(getActivity()).handlePayEvent(PayConst.PAY_TYPE_READING, PayConst.PRICE_READING_EXMINATION);
+						}
+					});
+
+				}else{
+					Intent it = new Intent(ReadingFragment.this.getActivity(),ReadingDetailActivity.class);
+					it.putExtra("reading_info", (Serializable) allReadingInfo.get(position));
+					startActivity(it);
+				}
+
 			}
 			
 			

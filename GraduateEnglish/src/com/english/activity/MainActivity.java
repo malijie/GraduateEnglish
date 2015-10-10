@@ -16,16 +16,15 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.english.ad.AdUtil;
 import com.english.fragments.ReadingFragment;
 import com.english.fragments.SettingFragment;
 import com.english.fragments.WordsFragment;
 import com.english.fragments.WritingFragment;
+import com.english.inter.IDialogOnClickListener;
 import com.english.phone.R;
 import com.english.config.Profile;
-import com.english.widget.ExitDialog;
+import com.english.util.Util;
 
 public class MainActivity extends Activity implements OnClickListener{
 	
@@ -233,19 +232,14 @@ public class MainActivity extends Activity implements OnClickListener{
 
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		  if(keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN){   
-//		        if((System.currentTimeMillis()-exitTime) > 2000){
-//		            Toast.makeText(getApplicationContext(), "再按一次退出程序", Toast.LENGTH_SHORT).show();
-//		            exitTime = System.currentTimeMillis();
-//		        } else {
-//		        	AdUtil.closeAd(MainActivity.this);
-//		            finish();
-//		            System.exit(0);
-//		        }
-//		        return true;
-
-			  ExitDialog exitDialog = new ExitDialog(this);
-			  exitDialog.show();
+		  if(keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN){
+			  Util.showAlertDialog(MainActivity.this,Profile.DIALOG_EXIT_TITLE,Profile.DIALOG_EXIT_MSG,
+					  new IDialogOnClickListener() {
+				  @Override
+				  public void onClick() {
+					  MainActivity.this.finish();
+				  }
+			  });
 		    }
 		
 		return super.onKeyDown(keyCode, event);
