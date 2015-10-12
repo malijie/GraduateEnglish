@@ -23,9 +23,8 @@ import com.english.inter.IDialogOnClickListener;
 import com.english.model.ReadingInfo;
 import com.english.pay.PayManager;
 import com.english.phone.R;
-import com.english.config.Profile;
+import com.english.config.Const;
 import com.english.util.Util;
-import com.wanpu.pay.PayConnect;
 
 public class ReadingFragment extends Fragment{
 
@@ -55,7 +54,7 @@ public class ReadingFragment extends Fragment{
 		eHelper = new EnglishDatabaseHelper(ReadingFragment.this.getActivity());
 		eOperate = new EnglishDBOperate(eHelper.getReadableDatabase(), ReadingFragment.this.getActivity());
 		allReadingInfo = new ArrayList<List<ReadingInfo>>();
-		for(int i=Profile.READING_END_DATE ;i>=Profile.READING_BEGIN_DATE ; i--){
+		for(int i= Const.READING_END_DATE ;i>= Const.READING_BEGIN_DATE ; i--){
 			readingInfoByDate = eOperate.getAllReadingInfoByDate(i);
 			allReadingInfo.add(readingInfoByDate);
 		}
@@ -75,7 +74,7 @@ public class ReadingFragment extends Fragment{
 				//最新的考研试题且没有购买过则弹出对话框
 				if(position == 0 && !PayManager.isCompleteReadingPay()){
 					//点击的是最新的试题，若没付费则弹出付费对话框
-					Util.showAlertDialog(getActivity(),Profile.DIALOG_PAY_TITLE,Profile.DIALOG_PAY_MSG,
+					Util.showAlertDialog(getActivity(), Const.DIALOG_PAY_TITLE, Const.DIALOG_PAY_MSG,
 							new IDialogOnClickListener() {
 						@Override
 						public void onClick() {
@@ -85,6 +84,7 @@ public class ReadingFragment extends Fragment{
 					});
 
 				}else{
+
 					Intent it = new Intent(ReadingFragment.this.getActivity(),ReadingDetailActivity.class);
 					it.putExtra("reading_info", (Serializable) allReadingInfo.get(position));
 					startActivity(it);

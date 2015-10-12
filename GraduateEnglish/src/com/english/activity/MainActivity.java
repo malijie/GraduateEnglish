@@ -23,7 +23,7 @@ import com.english.fragments.WordsFragment;
 import com.english.fragments.WritingFragment;
 import com.english.inter.IDialogOnClickListener;
 import com.english.phone.R;
-import com.english.config.Profile;
+import com.english.config.Const;
 import com.english.util.Util;
 
 public class MainActivity extends Activity implements OnClickListener{
@@ -182,18 +182,18 @@ public class MainActivity extends Activity implements OnClickListener{
 	public void onClick(View v) {
 		switch(v.getId()){
 		case R.id.main_layout_relativelayout_words:
-			setTabSelection(Profile.BOTTOM_SELECT_WORD);
+			setTabSelection(Const.BOTTOM_SELECT_WORD);
 			break;
 		
 		case R.id.main_layout_relativelayout_reading:
-			setTabSelection(Profile.BOTTOM_SELECT_READING);
+			setTabSelection(Const.BOTTOM_SELECT_READING);
 			break;
 			
 		case R.id.main_layout_relativelayout_writing:
-			setTabSelection(Profile.BOTTOM_SELECT_WRITTING);
+			setTabSelection(Const.BOTTOM_SELECT_WRITTING);
 			break;
 		case R.id.main_layout_relativelayout_setting:
-			setTabSelection(Profile.BOTTOM_SELECT_SETTING);
+			setTabSelection(Const.BOTTOM_SELECT_SETTING);
 			break;
 		} 
 	}
@@ -215,7 +215,7 @@ public class MainActivity extends Activity implements OnClickListener{
 			startActivity(it);
 			break;
 		case R.id.actionbar_setting:
-			setTabSelection(Profile.BOTTOM_SELECT_SETTING);
+			setTabSelection(Const.BOTTOM_SELECT_SETTING);
 			break;
 		}
 		return super.onOptionsItemSelected(item);
@@ -233,7 +233,7 @@ public class MainActivity extends Activity implements OnClickListener{
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		  if(keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN){
-			  Util.showAlertDialog(MainActivity.this,Profile.DIALOG_EXIT_TITLE,Profile.DIALOG_EXIT_MSG,
+			  Util.showAlertDialog(MainActivity.this, Const.DIALOG_EXIT_TITLE, Const.DIALOG_EXIT_MSG,
 					  new IDialogOnClickListener() {
 				  @Override
 				  public void onClick() {

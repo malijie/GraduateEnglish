@@ -26,14 +26,14 @@
 	        android:textColor="@color/word_button_kown"
 	        android:layout_below="@id/reading_list_item_image_icon"/>
 
-
         <ImageView
             android:id="@id/reading_list_item_image_lock"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="18dip"
             android:layout_below="@id/reading_list_item_text_date"
-            android:background="@drawable/button_lock_selector"/>
+            android:visibility="invisible"
+            android:src="@drawable/lock_normal"/>
 
         <TextView
             android:id="@id/reading_list_item_text_title"

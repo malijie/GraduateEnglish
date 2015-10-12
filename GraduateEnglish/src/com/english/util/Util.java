@@ -5,6 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -25,6 +27,8 @@ import com.wanpu.pay.PayConnect;
  *
  */
 public class Util {
+	private static final String TAG = Util.class.getSimpleName();
+
 	private final static String DATABASEPATH = "/data/data/com.english.phone/databases/";
 	private final static String DATABASENAME = "english.db";
 
@@ -72,6 +76,95 @@ public class Util {
 			}
     	}
    }
+
+	/**
+	 * 检查是否已经解压过了
+	 * @return
+	 */
+	private static boolean checkUnZipStatus(){
+		return SharedPreferenceUtil.getWordsUnzipStatus(English.mContext);
+	}
+
+	/**
+	 * 保存是否当前解压状态
+	 * @param status
+	 */
+	public static void saveUnZipStatus(boolean status){
+		SharedPreferenceUtil.saveUnzipWordsStatus(English.mContext,status);
+	}
+
+	/**
+	 * 解压单词读音到sd卡
+	 */
+	public static void unZipTheWordsVoice2SdCard(Context context, String assetName,String outputDirectory){
+		//已经解压过就不再解压了
+		if(checkUnZipStatus()){
+			return;
+		}
+
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				try{
+					Logger.d(TAG, "start unzip words to sd card");
+//					Process p = Runtime.getRuntime().exec("chmod 777 " +  outputDirectory );
+//					int status = p.waitFor();
+//					Logger.d(TAG,"create file status=" + status);
+
+					//创建解压目标目录
+					File file = new File(outputDirectory);
+					//如果目标目录不存在，则创建
+					if (!file.exists()) {
+						file.mkdirs();
+					}
+					InputStream inputStream = null;
+					//打开压缩文件
+					inputStream = context.getAssets().open(assetName);
+
+					ZipInputStream zipInputStream = new ZipInputStream(inputStream);
+
+					//读取一个进入点
+					ZipEntry zipEntry = zipInputStream.getNextEntry();
+
+					//使用1M buffer
+					byte[] buffer = new byte[1024 * 1024];
+					//解压时字节计数
+					int count = 0;
+
+					//如果进入点为空说明已经遍历完所有压缩包中文件和目录
+					while (zipEntry != null) {
+						//如果是一个目录
+						if (zipEntry.isDirectory()) {
+							file = new File(outputDirectory + File.separator + zipEntry.getName());
+							file.mkdir();
+						} else {
+							//如果是文件
+							file = new File(outputDirectory + File.separator
+									+ zipEntry.getName());
+							//创建该文件
+							file.createNewFile();
+							FileOutputStream fileOutputStream = new FileOutputStream(file);
+							while ((count = zipInputStream.read(buffer)) > 0) {
+								fileOutputStream.write(buffer, 0, count);
+							}
+							fileOutputStream.close();
+						}
+						//定位到下一个文件入口
+						zipEntry = zipInputStream.getNextEntry();
+					}
+					zipInputStream.close();
+					Logger.d(TAG, "complete unzip words to sd card");
+					//保存当前解压状态
+					saveUnZipStatus(true);
+
+				}catch(IOException e){
+					e.printStackTrace();
+				}
+
+			}
+		}).start();
+	}
+
 
 	/**
 	 * 从AndroidManifest.xml中读取mete-data的数据

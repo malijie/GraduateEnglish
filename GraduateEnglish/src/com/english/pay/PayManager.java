@@ -33,7 +33,6 @@ public class PayManager {
     //支付商品类型
     private int mPayGoodsType;
 
-
     public PayManager(Context context){
         mContext = context;
     }

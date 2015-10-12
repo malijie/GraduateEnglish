@@ -4,6 +4,9 @@ import android.content.Context;
 import android.content.res.AssetFileDescriptor;
 import android.media.MediaPlayer;
 
+import com.english.config.Config;
+import com.english.util.Logger;
+
 import java.io.IOException;
 
 /**
@@ -41,9 +44,11 @@ public class EnglishMediaPlayer {
     public void playTheWordTune(String wordName){
         mMediaPlayer.reset();
         try {
-            AssetFileDescriptor afd = mContext.getAssets().openFd(wordName.trim() + ".wav");
-            mMediaPlayer.setDataSource(afd.getFileDescriptor(),
-                    afd.getStartOffset(),afd.getLength());
+//            AssetFileDescriptor afd = mContext.getAssets().openFd(wordName.trim() + ".wav");
+//            mMediaPlayer.setDataSource(afd.getFileDescriptor(),
+//                    afd.getStartOffset(),afd.getLength());
+Logger.d("MLJ","file path= " + Config.UNZIP_WORDS_FILE_PATH + wordName + ".wav");
+            mMediaPlayer.setDataSource(Config.UNZIP_WORDS_FILE_PATH + wordName + ".wav");
             mMediaPlayer.prepare();
             mMediaPlayer.start();
         } catch (IOException e) {
