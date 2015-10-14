@@ -82,10 +82,7 @@ public class WordsFragment extends Fragment{
 	private void setWordsLesson(){
 		int lessonSize = eOperate.getLessonsSize()%100-1;
 		visitDateList = eOperate.getLastVisitDateListByLesson(lessonSize);
-//		
-////		EnglishDatabaseHelper eHelper2 = new EnglishDatabaseHelper(getActivity());
-////		EnglishDBOperate2 eOperate2 = new EnglishDBOperate2(eHelper2.getReadableDatabase(), getActivity());
-//		
+
 		List<Map<String,String>> allAbList = new ArrayList<Map<String,String>>();
 		for(int i=0;i<lessonSize;i++){
 			abList = eOperate.test(i);

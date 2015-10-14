@@ -10,9 +10,10 @@ import java.io.File;
  *
  */
 public class Const {
-	//单词压缩文件名称
+	//----------------文件相关常量------------------------
+	/**	单词压缩文件名称	*/
 	public static final String UNZIP_WORDS_FILE_NAME = "words.zip";
-
+	public static final String WORDS_VOICE_SUFFIX = ".wav";
 
 	public static final int BOTTOM_SELECT_WORD = 0;
 	public static final int BOTTOM_SELECT_READING = 1;

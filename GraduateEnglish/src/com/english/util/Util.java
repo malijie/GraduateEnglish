@@ -99,6 +99,7 @@ public class Util {
 	public static void unZipTheWordsVoice2SdCard(Context context, String assetName,String outputDirectory){
 		//已经解压过就不再解压了
 		if(checkUnZipStatus()){
+			Logger.d(TAG,"already have been unziped...");
 			return;
 		}
 
@@ -107,9 +108,6 @@ public class Util {
 			public void run() {
 				try{
 					Logger.d(TAG, "start unzip words to sd card");
-//					Process p = Runtime.getRuntime().exec("chmod 777 " +  outputDirectory );
-//					int status = p.waitFor();
-//					Logger.d(TAG,"create file status=" + status);
 
 					//创建解压目标目录
 					File file = new File(outputDirectory);

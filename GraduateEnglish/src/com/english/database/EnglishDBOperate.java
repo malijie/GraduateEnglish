@@ -275,8 +275,6 @@ public class EnglishDBOperate {
 			abList = new ArrayList<Map<String,String>>();
 			db.beginTransaction();
 			for(int i=0; i<lesson; i++){
-			//	sql = "select word,symbols,content,example from vocabulary WHERE ID=" + (i*100+1);
-//				sql = "select word,symbols from vocabulary WHERE ID=" + (i*100+1);
 				sql = "select word,symbols,content,example from vocabulary WHERE ID=1";
 				result =db.rawQuery(sql,null);
 				for(result.moveToFirst(); !result.isAfterLast(); result.moveToNext()){
@@ -329,6 +327,18 @@ public class EnglishDBOperate {
 			db.endTransaction();
 		}
 		return acList;
+	}
+
+	/**
+	 * 将当前课程的正确率置为0
+	 * @param index  课程号
+	 */
+	public void resumeAccuracyCount(int index){
+		db.beginTransaction();
+		String sql = "update vocabulary set is_known='false' where id between " + (index*100+1) + " and " + (index*100+100);
+		db.execSQL(sql);
+		db.setTransactionSuccessful();
+		db.endTransaction();
 	}
 	
 	/**

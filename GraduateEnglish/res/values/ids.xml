@@ -51,6 +51,7 @@
 	<item type="id" name="word_detail_button_right"></item>
 	<item type="id" name="word_detail_button_wrong"></item>
 	<item type="id" name="word_detail_button_volume"></item>
+	<item type="id" name="word_detail_button_gohaed"></item>
 
 
 	<!-- words example -->

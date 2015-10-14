@@ -22,14 +22,17 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.english.English;
 import com.english.ad.AdUtil;
 import com.english.database.EnglishDBOperate;
 import com.english.database.EnglishDatabaseHelper;
+import com.english.inter.IDialogOnClickListener;
 import com.english.media.EnglishMediaPlayer;
 import com.english.model.WordInfo;
 import com.english.phone.R;
 import com.english.util.Logger;
 import com.english.util.SharedPreferenceUtil;
+import com.english.util.Util;
 
 public class WordsDetailActivity extends Activity implements OnClickListener{
 	private static final String TAG = WordsDetailActivity.class.getSimpleName();
@@ -56,6 +59,8 @@ public class WordsDetailActivity extends Activity implements OnClickListener{
 	private Button butWrong = null;
 	//单词播放按钮
 	private ImageButton butSound = null;
+	//从头开始学习按钮
+	private ImageButton butGoHead = null;
 	//当前课程单词进度
 	private int progress;
 	//当前课程号
@@ -142,6 +147,7 @@ public class WordsDetailActivity extends Activity implements OnClickListener{
 		butRight = (Button) super.findViewById(R.id.word_detail_button_right);
 		butWrong = (Button) super.findViewById(R.id.word_detail_button_wrong);
 		butSound = (ImageButton) super.findViewById(R.id.word_detail_button_volume);
+		butGoHead = (ImageButton) super.findViewById(R.id.word_detail_button_gohaed);
 		
 		butNext.setOnClickListener(this);
 		txtExample1.setOnClickListener(this);
@@ -151,6 +157,7 @@ public class WordsDetailActivity extends Activity implements OnClickListener{
 		butRight.setOnClickListener(this);
 		butWrong.setOnClickListener(this);
 		butSound.setOnClickListener(this);
+		butGoHead.setOnClickListener(this);
 		
 		SharedPreferenceUtil spUtil = new SharedPreferenceUtil(this);
 		txtWord.setTextSize(spUtil.getFontSize("word_size"));
@@ -162,6 +169,7 @@ public class WordsDetailActivity extends Activity implements OnClickListener{
 	@Override
 	public void onClick(View v) {
 		switch(v.getId()){
+			//下一个按钮
 		case R.id.word_detail_button_next:
 			showWordsKnownOrNotUI();
 			showNextWord();
@@ -173,9 +181,15 @@ public class WordsDetailActivity extends Activity implements OnClickListener{
 			showExampleDetail();
 			break;
 		case R.id.word_detail_button_known:
+			//保存当前进度
+			saveCurrentProgress();
+			//显示正确/错误UI界面
 			showRightOrWrongUI();
 			break;
 		case R.id.word_detail_button_notknown:
+			//保存当前进度
+			saveCurrentProgress();
+			//更新不认识单词表
 			eOperate.updateWordIsKnownById(false, mWordInfo.getId());
 			showNextWordUI();
 			setWordData(progress);
@@ -197,7 +211,22 @@ public class WordsDetailActivity extends Activity implements OnClickListener{
 		case R.id.word_detail_add:
 			
 			break;
-			
+		case R.id.word_detail_button_gohaed:
+			//从头开始学习
+			Util.showAlertDialog(WordsDetailActivity.this,
+					"从头开始学习", "当前学习进度将不会保存，确定这么做吗？", new IDialogOnClickListener() {
+				@Override
+				public void onClick() {
+					//当前课程正确率清0
+					eOperate.resumeAccuracyCount(lessonNum);
+					//将当前课程的进度置为0
+					SharedPreferenceUtil.saveLessonProgress(English.mContext,lessonNum,0);
+					//关闭当前Activity
+					WordsDetailActivity.this.finish();
+				}
+			});
+
+			break;
 		}
 	}
 	
@@ -254,10 +283,10 @@ public class WordsDetailActivity extends Activity implements OnClickListener{
 	private void showExampleDetail(){
 		Intent it = new Intent(WordsDetailActivity.this, WordExampleDetailActivity.class);
 		it.putExtra("id", lessonWords.get(progress).getId());
-		it.putExtra("symbols",lessonWords.get(progress).getSymbols());
-		it.putExtra("word",lessonWords.get(progress).getWord());
-		it.putExtra("content",lessonWords.get(progress).getContent());
-		it.putExtra("example",lessonWords.get(progress).getExample());
+		it.putExtra("symbols", lessonWords.get(progress).getSymbols());
+		it.putExtra("word", lessonWords.get(progress).getWord());
+		it.putExtra("content", lessonWords.get(progress).getContent());
+		it.putExtra("example", lessonWords.get(progress).getExample());
 		startActivity(it);
 	}
 	
@@ -274,7 +303,7 @@ public class WordsDetailActivity extends Activity implements OnClickListener{
 		txtSymbols.setText(lessonWords.get(mIndex).getSymbols());
 		txtWord.setText(lessonWords.get(mIndex).getWord());
 		txtContent.setText(lessonWords.get(mIndex).getContent());
-		txtProgress.setText("Lesson " + (lessonNum + 1) + "  (" + (progress + 1) + "/" + lessonWords.size() + ")" );
+		txtProgress.setText("Lesson " + (lessonNum + 1) + "  (" + (progress + 1) + "/" + lessonWords.size() + ")");
 		setExampleData(lessonWords.get(mIndex).getExample());
 		updateLastVisitDate(mWordInfo.getId());
 	}
@@ -305,9 +334,6 @@ public class WordsDetailActivity extends Activity implements OnClickListener{
 		case KeyEvent.KEYCODE_BACK:
 //			ExitDialog eDialog = new ExitDialog(WordsDetailActivity.this, eHelper);
 //			eDialog.show();
-
-			Logger.d(TAG,"save lesson progress, lessonNum=" + lessonNum + ",progress=" + progress);
-			SharedPreferenceUtil.saveLessonProgress(WordsDetailActivity.this,lessonNum,progress);
 
 			break;
 		}
@@ -340,12 +366,17 @@ public class WordsDetailActivity extends Activity implements OnClickListener{
 		return super.onOptionsItemSelected(item);
 	}
 
+	/**
+	 * 保存当前进度
+	 */
+	private void saveCurrentProgress(){
+		SharedPreferenceUtil.saveLessonProgress(this,lessonNum,progress);
+	}
+
 	@Override
 	protected void onStop() {
 		super.onStop();
 		//停止播放音频
 		mEnglishMediaPlayer.stopPlay();
-		//保存数据
-		SharedPreferenceUtil.saveLessonProgress(this,lessonNum,progress);
 	}
 }

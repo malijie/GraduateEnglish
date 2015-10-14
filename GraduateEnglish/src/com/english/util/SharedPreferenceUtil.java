@@ -44,6 +44,7 @@ public class SharedPreferenceUtil {
 	 * @param progress 当前单词进度
 	 */
 	public static void saveLessonProgress(Context context, int lessonNum, int progress){
+Logger.d("MLJ","lessonNum=" + lessonNum + ",progress=" + progress);
 		context.getSharedPreferences(PREF_DATA_NAME,Context.MODE_PRIVATE).edit().putInt(PREF_LESSON_KEY + lessonNum,progress).commit();
 	}
 
