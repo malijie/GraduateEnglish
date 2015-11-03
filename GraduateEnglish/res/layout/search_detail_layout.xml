@@ -11,13 +11,6 @@
         android:background="@color/main_layout_bg"
         android:orientation="vertical"
         android:weightSum="16">
-        <LinearLayout
-            android:id="@id/search_detail_layout_ad1"  
-        	android:layout_width="match_parent"
-	        android:layout_height="20dip"
-	        android:orientation="horizontal"
-	        android:background="@color/words_layout_bg">
-	    </LinearLayout>    
 
          <LinearLayout
              android:layout_width="match_parent"
@@ -62,6 +55,7 @@
 	        	    android:id="@id/search_detail_button_add"
         	     	android:layout_width="wrap_content"
 	        	    android:layout_height="wrap_content"
+					android:layout_marginRight="10dip"
 	        	    android:background="@drawable/button_search_add_selector"
 	        	    android:layout_gravity="right|center_vertical"/>  
         </LinearLayout>
@@ -95,7 +89,7 @@
             android:id="@id/search_detail_layout_example1"  
 	        android:layout_width="match_parent"
 	        android:layout_height="0dip"
-	        android:layout_weight="10"
+	        android:layout_weight="12"
 	        android:layout_marginTop="3dip"
 	        android:background="@color/words_layout_bg"
 	        android:orientation="vertical">
@@ -110,15 +104,5 @@
         	    android:textColor="@color/example_font"
         	    android:textSize="15sp"/>
         </RelativeLayout>
-	        <LinearLayout
-	            android:id="@id/search_detail_layout_ad2"  
-		        android:layout_width="match_parent"
-		        android:layout_height="0dip"
-		        android:layout_weight="3" 
-		        android:orientation="horizontal"
-		        android:layout_gravity="center"
-		        android:layout_marginTop="5dip"
-		        android:background="@color/main_layout_bg">
-	      	</LinearLayout>
     </LinearLayout>
 </LinearLayout>

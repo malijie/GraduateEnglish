@@ -29,12 +29,12 @@
  	        android:layout_gravity="right|center"
  	        android:background="@drawable/button_search_selector"/>
  	</LinearLayout>
- 	<LinearLayout 
- 	    android:id="@id/search_layout_layout_ad"
- 	    android:layout_width="match_parent"
- 	    android:layout_height="20dip"
- 	    android:orientation="horizontal"
- 	    android:layout_marginTop="5dip"/>
+ 	<!--<LinearLayout -->
+ 	    <!--android:id="@id/search_layout_layout_ad"-->
+ 	    <!--android:layout_width="match_parent"-->
+ 	    <!--android:layout_height="20dip"-->
+ 	    <!--android:orientation="horizontal"-->
+ 	    <!--android:layout_marginTop="5dip"/>-->
     <ListView 
         android:id="@id/search_layout_listview_result"
         android:layout_height="match_parent"

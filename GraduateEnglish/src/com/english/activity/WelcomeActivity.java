@@ -37,7 +37,6 @@ public class WelcomeActivity extends Activity {
 		AppConnect.getInstance(this);//初始化    
 		AppConnect.getInstance(this).initUninstallAd(this);//卸载展示广告
 		AppConnect.getInstance(this).setCrashReport(true); //开启错误报告
-//String value=AppConnect.getInstance(this).getConfig("", "");
 
 		imgBackgroud = (ImageView) super.findViewById(R.id.welcome_image);
 		AlphaAnimation alpha = new AlphaAnimation(0.1f, 1.0f);

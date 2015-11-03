@@ -21,7 +21,7 @@ public class WrittingAnswerActivity extends Activity{
 	private TextView textTitle = null;
 	private TextView textAnswer = null;
 	private WrittingInfo writtingInfo= null;
-	private LinearLayout adLayout = null;
+//	private LinearLayout adLayout = null;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -35,9 +35,9 @@ public class WrittingAnswerActivity extends Activity{
 
 
 	private void setData() { 
-		textTitle.setText(writtingInfo.getDate() + "ÄêÐ´×÷ " + writtingInfo.getTitle() + " ·¶ÎÄ");
+		textTitle.setText(writtingInfo.getDate() + "ÄêÐ´×÷" + writtingInfo.getTitle() + "²Î¿¼·¶ÎÄ");
 		textAnswer.setText(Html.fromHtml(writtingInfo.getAnswer()));
-		textAnswer.setMovementMethod(ScrollingMovementMethod.getInstance()); //ÉèÖÃ´¥Ãþ»¬¶¯¹ö¶¯Ìõ
+		textAnswer.setMovementMethod(ScrollingMovementMethod.getInstance()); //ï¿½ï¿½ï¿½Ã´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		textAnswer.setMovementMethod(ScrollingMovementMethod.getInstance());
 		
 		textAnswer.setTextSize(new SharedPreferenceUtil(this).getFontSize("writting_size"));
@@ -52,9 +52,9 @@ public class WrittingAnswerActivity extends Activity{
 	private void initView() {
 		textTitle = (TextView) super.findViewById(R.id.writting_answer_detail_text_title);
 		textAnswer = (TextView) super.findViewById(R.id.writting_answer_detail_text_answer);
-		adLayout = (LinearLayout) super.findViewById(R.id.writting_answer_detail_layout_ad);
-		
-		AdUtil.showBannerAd(WrittingAnswerActivity.this, adLayout);
+//		adLayout = (LinearLayout) super.findViewById(R.id.writting_answer_detail_layout_ad);
+
+//		AdUtil.showBannerAd(WrittingAnswerActivity.this, adLayout);
 	}
 	
 	private void initActionBar() {

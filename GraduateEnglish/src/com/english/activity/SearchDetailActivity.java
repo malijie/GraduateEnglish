@@ -27,8 +27,8 @@ public class SearchDetailActivity extends Activity implements OnClickListener{
 	private TextView textContent = null;
 	private TextView textSymbols = null;
 	private TextView textExample1 = null;
-	private LinearLayout ad1Layout = null;
-	private LinearLayout ad2Layout = null;
+//	private LinearLayout ad1Layout = null;
+//	private LinearLayout ad2Layout = null;
 	private ImageButton buttonAdd = null;
 	private WordInfo wordInfo = null;
 	private EnglishDatabaseHelper eHelper = null;
@@ -55,8 +55,8 @@ public class SearchDetailActivity extends Activity implements OnClickListener{
 		textSymbols.setText(wordInfo.getSymbols());
 		textContent.setText(wordInfo.getContent());
 		textExample1.setText(Html.fromHtml(wordInfo.getExample()));
-		AdUtil.showMiniAd(this, ad1Layout,15);
-		AdUtil.showBannerAd(this, ad2Layout);
+//		AdUtil.showMiniAd(this, ad1Layout,15);
+//		AdUtil.showBannerAd(this, ad2Layout);
 	}
 
 	private void initView() {
@@ -64,8 +64,8 @@ public class SearchDetailActivity extends Activity implements OnClickListener{
 		textContent = (TextView) super.findViewById(R.id.search_detail_text_content);
 		textSymbols = (TextView) super.findViewById(R.id.search_detail_text_symbols);
 		textExample1 = (TextView) super.findViewById(R.id.search_detail_text_example1);
-		ad1Layout = (LinearLayout) super.findViewById(R.id.search_detail_layout_ad1);
-		ad2Layout = (LinearLayout) super.findViewById(R.id.search_detail_layout_ad2);
+//		ad1Layout = (LinearLayout) super.findViewById(R.id.search_detail_layout_ad1);
+//		ad2Layout = (LinearLayout) super.findViewById(R.id.search_detail_layout_ad2);
 		buttonAdd = (ImageButton) super.findViewById(R.id.search_detail_button_add);
 		textExample1.setMovementMethod(ScrollingMovementMethod.getInstance());
 		textContent.setMovementMethod(ScrollingMovementMethod.getInstance());
@@ -82,7 +82,7 @@ public class SearchDetailActivity extends Activity implements OnClickListener{
 		switch(v.getId()){
 		case R.id.search_detail_button_add:
 			eOperate.updateWordIsKnownById(false, wordInfo.getId());
-			Toast.makeText(SearchDetailActivity.this, "¼ÓÈëÉú´Ê±¾³É¹¦£¡", Toast.LENGTH_SHORT).show();
+			Toast.makeText(SearchDetailActivity.this, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½É¹ï¿½ï¿½ï¿½", Toast.LENGTH_SHORT).show();
 			break;
 		}
 	}

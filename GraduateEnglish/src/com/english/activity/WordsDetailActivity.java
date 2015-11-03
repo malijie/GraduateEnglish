@@ -137,7 +137,7 @@ public class WordsDetailActivity extends Activity implements OnClickListener{
 		layoutContent = (LinearLayout) super.findViewById(R.id.word_detail_content_layout);
 		layoutExample1 = (RelativeLayout) super.findViewById(R.id.word_detail_example1_layout);
 		layoutExample2 = (RelativeLayout) super.findViewById(R.id.word_detail_example2_layout);
-		layoutAd = (LinearLayout) super.findViewById(R.id.word_detail_ad_layout);
+//		layoutAd = (LinearLayout) super.findViewById(R.id.word_detail_ad_layout);
 		layoutRightOrWrong = (LinearLayout) super.findViewById(R.id.word_detail_layout_rightorwrong);
 		layoutKnownOrNot = (LinearLayout) super.findViewById(R.id.word_detail_layout_knownornot);
 		
@@ -162,8 +162,8 @@ public class WordsDetailActivity extends Activity implements OnClickListener{
 		SharedPreferenceUtil spUtil = new SharedPreferenceUtil(this);
 		txtWord.setTextSize(spUtil.getFontSize("word_size"));
 		
-		AdUtil.showMiniAd(this, layoutAd,30);
-		
+//		AdUtil.showMiniAd(this, layoutAd,30);
+
 	}
 
 	@Override

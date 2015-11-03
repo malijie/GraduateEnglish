@@ -439,7 +439,7 @@ public class EnglishDBOperate {
 		Cursor result = null;
 		try{
 			db.beginTransaction();
-			sql = "select * from writting";
+			sql = "select * from writting order by date DESC";
 			result = db.rawQuery(sql,null);  
 			writtingInfoList = new ArrayList<WrittingInfo>();
 			for(result.moveToFirst(); !result.isAfterLast(); result.moveToNext()){

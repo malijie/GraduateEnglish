@@ -228,15 +228,15 @@
 	                 android:background="@drawable/button_detail_wrong_selector"
 	                 android:textColor="@color/font_white"/>
          </LinearLayout>
-         <LinearLayout
-            android:id="@id/word_detail_ad_layout"  
-	        android:layout_width="match_parent"
-	        android:layout_height="0dip"
-	        android:layout_weight="3" 
-	        android:orientation="horizontal"
-	        android:layout_gravity="center"
-	        android:background="@color/main_layout_bg">
-      	</LinearLayout>
+         <!--<LinearLayout-->
+            <!--android:id="@id/word_detail_ad_layout"  -->
+	        <!--android:layout_width="match_parent"-->
+	        <!--android:layout_height="0dip"-->
+	        <!--android:layout_weight="3" -->
+	        <!--android:orientation="horizontal"-->
+	        <!--android:layout_gravity="center"-->
+	        <!--android:background="@color/main_layout_bg">
+      	</LinearLayout>-->
     </LinearLayout>
     
 </LinearLayout>

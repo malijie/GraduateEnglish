@@ -29,7 +29,7 @@ import com.english.model.WordInfo;
 import com.english.phone.R;
 
 public class SearchActivity extends Activity implements OnClickListener{
-	private LinearLayout adLayout = null;
+//	private LinearLayout adLayout = null;
 	private ListView searchListView = null;
 	private ImageButton buttonSearch = null;
 	private EditText editInput = null;
@@ -65,11 +65,11 @@ public class SearchActivity extends Activity implements OnClickListener{
 		buttonSearch = (ImageButton) super.findViewById(R.id.search_layout_button_search);
 		editInput = (EditText) super.findViewById(R.id.search_layout_edittext_input);
 		buttonSearch.setOnClickListener(this); 
-		adLayout = (LinearLayout) super.findViewById(R.id.search_layout_layout_ad);
-		
+//		adLayout = (LinearLayout) super.findViewById(R.id.search_layout_layout_ad);
+
 		wordInfos = new ArrayList<WordInfo>();
 		searchListView.setOnItemClickListener(new OnItemClickListenerImpl());
-		AdUtil.showMiniAd(this, adLayout,15);
+//		AdUtil.showMiniAd(this, adLayout,15);
 	}
 
 	@Override

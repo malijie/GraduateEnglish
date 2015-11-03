@@ -17,7 +17,6 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import cn.waps.AppConnect;
 
 import com.english.ad.AdUtil;
 import com.english.model.ReadingInfo;
@@ -34,8 +33,8 @@ public class ReadingDetailActivity extends Activity implements OnClickListener{
 	private ReadingInfo readingInfo = null;
 	private List<ReadingInfo> readingInfos = null;
 	private int index = 0;
-	private LinearLayout adLayout = null;
-	
+//	private LinearLayout adLayout = null;
+
 	@Override 
 	protected void onCreate(Bundle savedInstanceState) { 
 		super.onCreate(savedInstanceState);
@@ -61,7 +60,7 @@ public class ReadingDetailActivity extends Activity implements OnClickListener{
 		buttonNext = (ImageButton) super.findViewById(R.id.reading_detail_button_next);
 		buttonPrevious = (ImageButton) super.findViewById(R.id.reading_detail_button_previous);
 		buttonAnswer = (Button) super.findViewById(R.id.reading_detail_button_answer);
-		adLayout = (LinearLayout) super.findViewById(R.id.reading_detail_layout_ad2);
+//		adLayout = (LinearLayout) super.findViewById(R.id.reading_detail_layout_ad2);
 
 		
 		buttonNext.setOnClickListener(this);
@@ -70,7 +69,7 @@ public class ReadingDetailActivity extends Activity implements OnClickListener{
 		
 		textContent.setTextSize(new SharedPreferenceUtil(this).getFontSize("reading_size"));
 		
-		AdUtil.showBannerAd(this, adLayout);
+//		AdUtil.showBannerAd(this, adLayout);
 		
 	}
 

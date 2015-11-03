@@ -29,7 +29,7 @@ public class UnknownWordDetailActivity extends Activity implements OnClickListen
 	private TextView textContent = null;
 	private TextView textExample = null;
  	private Button butDelete = null;
- 	private LinearLayout adLayout = null;
+// 	private LinearLayout adLayout = null;
  	private EnglishDatabaseHelper eHelper = null;
  	private EnglishDBOperate eOperate = null;
  	private boolean isDeleted = false;
@@ -52,7 +52,7 @@ public class UnknownWordDetailActivity extends Activity implements OnClickListen
 		textExample.setText(Html.fromHtml(mWordInfo.getExample())); 
 		textContent.setText(mWordInfo.getContent());
 		textExample.setMovementMethod(ScrollingMovementMethod.getInstance());
-		AdUtil.showMiniAd(this, adLayout,10);
+//		AdUtil.showMiniAd(this, adLayout,10);
 	}
  
 	private void initView() {
@@ -61,7 +61,7 @@ public class UnknownWordDetailActivity extends Activity implements OnClickListen
 		textSymbol = (TextView) super.findViewById(R.id.unkonwn_words_detail_text_symbol);
 		textContent = (TextView) super.findViewById(R.id.unkonwn_words_detail_text_content);
 		butDelete = (Button) super.findViewById(R.id.unkonwn_words_detail_button_delete);
-		adLayout = (LinearLayout) super.findViewById(R.id.unkonwn_words_detail_layout_ad);
+//		adLayout = (LinearLayout) super.findViewById(R.id.unkonwn_words_detail_layout_ad);
 		butDelete.setOnClickListener(this);
 	}
 
@@ -77,7 +77,7 @@ public class UnknownWordDetailActivity extends Activity implements OnClickListen
 		case R.id.unkonwn_words_detail_button_delete:
 			if(!isDeleted){
 				eOperate.updateUnknownWordStatusById(mWordInfo.getId());
-				Toast.makeText(UnknownWordDetailActivity.this,"ɾ���ɹ�!", Toast.LENGTH_SHORT).show();
+				Toast.makeText(UnknownWordDetailActivity.this,"已删除!", Toast.LENGTH_SHORT).show();
 				isDeleted = true;
 				UnknownWordDetailActivity.this.finish();
 				Intent it = new Intent(UnknownWordDetailActivity.this,UnknownWordActivity.class);

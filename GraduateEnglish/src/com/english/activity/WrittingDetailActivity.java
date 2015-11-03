@@ -33,8 +33,8 @@ public class WrittingDetailActivity extends Activity implements OnClickListener{
 	private Button buttonAnswer = null;
 	private ImageView imageContent = null;
 	private WrittingInfo writtingInfo = null;
-	private LinearLayout  adLayout = null;
-	
+//	private LinearLayout  adLayout = null;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -49,7 +49,7 @@ public class WrittingDetailActivity extends Activity implements OnClickListener{
 		writtingInfo = (WrittingInfo) getIntent().getSerializableExtra("writting_info");
 		textTitle.setText(writtingInfo.getTitle());
 		textContent.setText(writtingInfo.getQuestion());
-		textContent.setMovementMethod(ScrollingMovementMethod.getInstance()); //ÉèÖÃ´¥Ãþ»¬¶¯¹ö¶¯Ìõ
+		textContent.setMovementMethod(ScrollingMovementMethod.getInstance()); //ï¿½ï¿½ï¿½Ã´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 
 		if(writtingInfo.getHaveImage().equals("true")){
@@ -71,12 +71,12 @@ public class WrittingDetailActivity extends Activity implements OnClickListener{
 		textContent = (TextView) super.findViewById(R.id.writting_detail_text_content);
 		imageContent = (ImageView) super.findViewById(R.id.writting_detail_image_content);
 		buttonAnswer = (Button) super.findViewById(R.id.writting_detail_button_answer);
-		adLayout = (LinearLayout) super.findViewById(R.id.writting_detail_layout_ad);
+//		adLayout = (LinearLayout) super.findViewById(R.id.writting_detail_layout_ad);
 		buttonAnswer.setOnClickListener(this);
 		
 		textContent.setTextSize(new SharedPreferenceUtil(this).getFontSize("writting_size"));
-		AdUtil.showBannerAd(this, adLayout);
-		
+//		AdUtil.showBannerAd(this, adLayout);
+
 	}
 
 
