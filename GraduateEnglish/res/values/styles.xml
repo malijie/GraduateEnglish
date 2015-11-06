@@ -29,5 +29,5 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>
     </style>
-    
+
 </resources>
