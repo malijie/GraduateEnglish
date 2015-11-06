@@ -35,8 +35,7 @@ public class ReadingFragment extends Fragment{
 	private List<ReadingInfo> readingInfoByDate = null;
 	private List<List<ReadingInfo>> allReadingInfo = null;
 	private ReadingAdapter rAdapter = null;
-	
- 	
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {

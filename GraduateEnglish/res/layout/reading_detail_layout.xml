@@ -4,33 +4,39 @@
     android:layout_height="match_parent"
     android:background="@color/main_layout_bg"
     tools:context="${packageName}.${activityClass}">
-    <LinearLayout   
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="7dip"
         android:layout_marginLeft="7dip"
         android:layout_marginRight="7dip"
         android:background="@color/main_layout_bg"
-        android:orientation="vertical"
-        android:weightSum="13">
+        android:orientation="vertical">
         
-        <LinearLayout
+        <RelativeLayout
 	        android:layout_width="match_parent"
-	        android:layout_height="0dip"
+	        android:layout_height="50dip"
 	        android:background="@color/words_layout_bg"
-	        android:orientation="horizontal"
-	        android:layout_marginTop="7dip"
-	        android:layout_weight="1">
+	        android:layout_marginTop="7dip">
 	        	<TextView
 	        	    android:id="@id/reading_detail_text_title"
-	        	    android:layout_width="match_parent"
+	        	    android:layout_width="wrap_content"
 	        	    android:layout_height="match_parent"
-	        	    android:text="Text 1"
+	        	    android:layout_gravity="center_horizontal"
+					android:text="Text 1"
 	        	    android:textColor="@color/words_font_normal"
 	        	    android:textSize="20dip"
 	        	    android:gravity="center"
-	        	    android:layout_gravity="center"/>
-        </LinearLayout>
+					android:layout_centerHorizontal="true"/>
+			<ImageButton
+				android:id="@+id/reading_detail_button_volume"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:background="@drawable/button_volume_selector"
+				android:layout_alignParentRight="true"
+				android:layout_centerVertical="true"
+				android:layout_marginRight="10dip"/>
+        </RelativeLayout>
        
        <RelativeLayout  
 	        android:layout_width="match_parent"
@@ -60,13 +66,14 @@
 	        android:background="@color/words_layout_bg"
 	        android:orientation="horizontal"
 	        android:layout_marginTop="7dip"
+		    android:gravity="center"
 	        android:layout_weight="1">
 	        	<ImageButton
 	        	     android:id="@id/reading_detail_button_previous"
 	        	     android:layout_width="25dip"
 	        	     android:layout_height="25dip"
 	        	     android:layout_gravity="center_vertical|left"
-	        	     android:background="@drawable/button_previous_selector" />
+	     	     	 android:background="@drawable/button_previous_selector" />
 	        	<Button 
 		            android:id="@id/reading_detail_button_answer"
 		            android:layout_width="250dip"
@@ -87,7 +94,7 @@
 					android:textSize="20sp"
 		            android:textColor="@color/words_font_normal"/>
 	        	<LinearLayout  
-				        android:layout_width="fill_parent"  
+				        android:layout_width="wrap_content"
 				        android:layout_height="wrap_content"  
 				        android:gravity="right" 
 				        android:layout_gravity="center">  
@@ -95,20 +102,17 @@
 	        	     android:id="@id/reading_detail_button_next"
 	        	     android:layout_width="25dip"
 	        	     android:layout_height="25dip"
-	        	     android:layout_gravity="center_vertical|right"
+	        	     android:layout_gravity="right"
 	        	     android:background="@drawable/button_next_selector" />
     			</LinearLayout>  
 	        	 
         </LinearLayout>
-       
-        
-       
-        <LinearLayout 
-	        android:id="@id/reading_detail_layout_ad2"
-	        android:layout_height="50dip"
-	        android:layout_width="match_parent"
-	        android:layout_marginTop="5dip"
-	        android:orientation="horizontal">
-    	</LinearLayout>
+        <!--<LinearLayout -->
+	        <!--android:id="@id/reading_detail_layout_ad2"-->
+	        <!--android:layout_height="50dip"-->
+	        <!--android:layout_width="match_parent"-->
+	        <!--android:layout_marginTop="5dip"-->
+	        <!--android:orientation="horizontal">-->
+    	<!--</LinearLayout>-->
     </LinearLayout>
 </LinearLayout>

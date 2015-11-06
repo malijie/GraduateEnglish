@@ -12,13 +12,14 @@ public class SharedPreferenceUtil {
 	//解压状态sp
 	private static final String PREF_UNZIP_NAME = "english_unzip_status";
 
-
 	//sp课程名称key
 	private static final String PREF_LESSON_KEY = "lesson";
 	//sp阅读支付结果key
 	private static final String PREF_PAY_READING_RESULT_KEY = "pay_reading_result";
 	//sp单词解压记录
 	private static final String PREF_WORDS_UNZIP_STATUS_KEY = "unzip_words_status";
+	//sp阅读理解解压记录
+	private static final String PREF_READING_UNZIP_STATUS_KEY = "unzip_reading_status";
 
 
 	public SharedPreferenceUtil(Context context){
@@ -92,6 +93,24 @@ Logger.d("MLJ","lessonNum=" + lessonNum + ",progress=" + progress);
 	 */
 	public static boolean getWordsUnzipStatus(Context context){
 		return context.getSharedPreferences(PREF_UNZIP_NAME,Context.MODE_PRIVATE).getBoolean(PREF_WORDS_UNZIP_STATUS_KEY,false);
+	}
+
+	/**
+	 * 保存解阅读理解记录
+	 * @param context
+	 * @param result
+	 */
+	public static void saveUnzipReadingStatus(Context context,boolean result){
+		context.getSharedPreferences(PREF_UNZIP_NAME,Context.MODE_PRIVATE).edit().putBoolean(PREF_READING_UNZIP_STATUS_KEY,result).commit();
+	}
+
+	/**
+	 * 获取阅读理解是否已经解压状态
+	 * @param context
+	 * @return
+	 */
+	public static boolean getReadingUnzipStatus(Context context){
+		return context.getSharedPreferences(PREF_UNZIP_NAME,Context.MODE_PRIVATE).getBoolean(PREF_READING_UNZIP_STATUS_KEY,false);
 	}
 
 }

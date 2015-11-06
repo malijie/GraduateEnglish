@@ -14,6 +14,9 @@ public class Const {
 	/**	单词压缩文件名称	*/
 	public static final String UNZIP_WORDS_FILE_NAME = "words.zip";
 	public static final String WORDS_VOICE_SUFFIX = ".wav";
+	/** 阅读理解文件名称	*/
+	public static final String UNZIP_READING_FILE_NAME = "reading.zip";
+	public static final String READING_VOICE_SUFFIX = ".mp3";
 
 	public static final int BOTTOM_SELECT_WORD = 0;
 	public static final int BOTTOM_SELECT_READING = 1;
@@ -37,5 +40,7 @@ public class Const {
 	public static final String DIALOG_PAY_MSG = "支付1元便可查看最新试题";
 
 
+	//阅读理解音频文件
+	public static final String READING_PART_A = "Reading_A_";
 
 }

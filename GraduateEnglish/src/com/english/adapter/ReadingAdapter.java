@@ -59,15 +59,15 @@ public class ReadingAdapter extends BaseAdapter{
 		}
 
 		//真题付费后设置解锁图标，否则显示上锁
-		if(position == 0){
-			holder.image_lock.setVisibility(View.VISIBLE);
-			if(PayManager.isCompleteReadingPay()){
-				holder.image_lock.setImageResource(R.drawable.lock_select);
-			}else{
-				holder.image_lock.setImageResource(R.drawable.lock_normal);
-			}
-
-		}
+//		if(position == 0){
+//			holder.image_lock.setVisibility(View.VISIBLE);
+//			if(PayManager.isCompleteReadingPay()){
+//				holder.image_lock.setImageResource(R.drawable.lock_select);
+//			}else{
+//				holder.image_lock.setImageResource(R.drawable.lock_normal);
+//			}
+//
+//		}
 
 		holder.image_icon.setImageResource(R.drawable.listview_reading);
 		holder.text_date.setText(mAllReadingInfoList.get(position).get(0).getDate() + "/01");

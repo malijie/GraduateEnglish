@@ -12,13 +12,13 @@ import android.widget.ImageView;
 
 import cn.waps.AppConnect;
 
+import com.english.English;
 import com.english.config.Config;
 import com.english.config.Const;
 import com.english.phone.R;
 import com.english.util.Logger;
+import com.english.util.SharedPreferenceUtil;
 import com.english.util.Util;
-
-import java.io.IOException;
 
 public class WelcomeActivity extends Activity {
 	private static final String TAG = WelcomeActivity.class.getSimpleName();
@@ -68,11 +68,47 @@ public class WelcomeActivity extends Activity {
 	}
 
 	private void initData() {
+		Logger.d(TAG, "start to copy db to phone");
 		//拷贝数据库到手机中
 		Util.copyDB2Phone(WelcomeActivity.this);
 		//解压单词到sd卡
-		Util.unZipTheWordsVoice2SdCard(WelcomeActivity.this,
+		handleUnzipWordsEvent();
+		//解压阅读理解到sd卡
+		handleUnzipReadingEvent();
+	}
+
+	/**
+	 * 解压单词到SD卡
+	 */
+	private void handleUnzipWordsEvent() {
+		boolean isZiped = SharedPreferenceUtil.getWordsUnzipStatus(English.mContext);
+
+		//已经解压过就不再解压了
+		if(isZiped){
+			Logger.d(TAG,"words.zip already have been unziped...");
+			return;
+		}
+
+		Util.unZipFile2SdCard(WelcomeActivity.this,
 				Const.UNZIP_WORDS_FILE_NAME, Config.UNZIP_WORDS_FILE_PATH);
+	}
+
+	/**
+	 * 解压阅读到sd卡
+	 */
+	private void handleUnzipReadingEvent(){
+
+		boolean isZiped = SharedPreferenceUtil.getReadingUnzipStatus(English.mContext);
+
+		//已经解压过就不再解压了
+		if(isZiped){
+			Logger.d(TAG,"reading.zip already have been unziped...");
+			return;
+		}
+
+		Util.unZipFile2SdCard(WelcomeActivity.this,
+				Const.UNZIP_READING_FILE_NAME, Config.UNZIP_READING_FILE_PATH);
+
 	}
 }
 

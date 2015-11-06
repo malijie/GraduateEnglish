@@ -55,6 +55,21 @@ public class EnglishMediaPlayer {
     }
 
     /**
+     * 播放阅读理解文章音频
+     * @param passage
+     */
+    public void playThePassage(String passage){
+        mMediaPlayer.reset();
+        try {
+            mMediaPlayer.setDataSource(passage);
+            mMediaPlayer.prepare();
+            mMediaPlayer.start();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
      * 停止播放
      */
     public void stopPlay(){

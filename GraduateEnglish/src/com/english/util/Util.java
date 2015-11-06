@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.english.English;
+import com.english.config.Const;
 import com.english.inter.IDialogOnClickListener;
 import com.english.phone.R;
 import com.wanpu.pay.PayConnect;
@@ -78,36 +79,22 @@ public class Util {
    }
 
 	/**
-	 * 检查是否已经解压过了
-	 * @return
-	 */
-	private static boolean checkUnZipStatus(){
-		return SharedPreferenceUtil.getWordsUnzipStatus(English.mContext);
-	}
-
-	/**
 	 * 保存是否当前解压状态
 	 * @param status
 	 */
-	public static void saveUnZipStatus(boolean status){
+	public static void saveUnZipStatus(String type, boolean status){
 		SharedPreferenceUtil.saveUnzipWordsStatus(English.mContext,status);
 	}
 
 	/**
-	 * 解压单词读音到sd卡
+	 * 解压文件到sd卡
 	 */
-	public static void unZipTheWordsVoice2SdCard(Context context, String assetName,String outputDirectory){
-		//已经解压过就不再解压了
-		if(checkUnZipStatus()){
-			Logger.d(TAG,"already have been unziped...");
-			return;
-		}
-
+	public static void unZipFile2SdCard(Context context, String assetName, String outputDirectory){
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
 				try{
-					Logger.d(TAG, "start unzip words to sd card");
+					Logger.d(TAG, "start unzip file to sd card");
 
 					//创建解压目标目录
 					File file = new File(outputDirectory);
@@ -151,9 +138,10 @@ public class Util {
 						zipEntry = zipInputStream.getNextEntry();
 					}
 					zipInputStream.close();
-					Logger.d(TAG, "complete unzip words to sd card");
+					Logger.d(TAG, "complete unzip to sd card");
+
 					//保存当前解压状态
-					saveUnZipStatus(true);
+					saveUnZipStatusEvent(assetName);
 
 				}catch(IOException e){
 					e.printStackTrace();
@@ -161,6 +149,20 @@ public class Util {
 
 			}
 		}).start();
+	}
+
+	/**
+	 *根据文件名称保存响应的解压状态
+	 * @param assetName
+	 */
+	private static void saveUnZipStatusEvent(String assetName) {
+		if(assetName.equals(Const.UNZIP_WORDS_FILE_NAME)){
+			//单词文件已解压过了
+			SharedPreferenceUtil.saveUnzipWordsStatus(English.mContext,true);
+		}else if(assetName.equals(Const.UNZIP_READING_FILE_NAME)){
+			//阅读文件已经解压过了
+			SharedPreferenceUtil.saveUnzipReadingStatus(English.mContext,true);
+		}
 	}
 
 
