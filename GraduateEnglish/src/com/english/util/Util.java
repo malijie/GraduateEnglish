@@ -50,7 +50,7 @@ public class Util {
     	File dbFile = new File(dbFileName);
     	InputStream is = null;
     	FileOutputStream os = null;
-  
+  Logger.d(TAG,"dbFile.exists()=" + dbFile.exists());
     	if(!dbFile.exists()){//判断文件夹是否存在，不存在就新建一个
     	Toast.makeText(context, "首次启动，数据加载中...", Toast.LENGTH_LONG).show();
     		dbFile.getParentFile().mkdirs();

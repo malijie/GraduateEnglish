@@ -20,6 +20,6 @@ public class English extends Application{
         //获取上下文
         mContext = getApplicationContext();
         //初始化支付接口
-        PayManager.init(getApplicationContext());
+        PayManager.init(English.mContext);
     }
 }

@@ -19,8 +19,10 @@ import android.widget.Toast;
 import com.english.ad.AdUtil;
 import com.english.database.EnglishDBOperate;
 import com.english.database.EnglishDatabaseHelper;
+import com.english.media.EnglishMediaPlayer;
 import com.english.model.WordInfo;
 import com.english.phone.R;
+import com.english.util.Logger;
 
 public class SearchDetailActivity extends Activity implements OnClickListener{
 	private TextView textWord = null;
@@ -30,10 +32,14 @@ public class SearchDetailActivity extends Activity implements OnClickListener{
 //	private LinearLayout ad1Layout = null;
 //	private LinearLayout ad2Layout = null;
 	private ImageButton buttonAdd = null;
+	//点击播放单词音频文件
+	private ImageButton buttonPlay = null;
+
 	private WordInfo wordInfo = null;
 	private EnglishDatabaseHelper eHelper = null;
 	private EnglishDBOperate eOperate = null;
-	
+	private EnglishMediaPlayer mPlayer = null;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -69,12 +75,15 @@ public class SearchDetailActivity extends Activity implements OnClickListener{
 		buttonAdd = (ImageButton) super.findViewById(R.id.search_detail_button_add);
 		textExample1.setMovementMethod(ScrollingMovementMethod.getInstance());
 		textContent.setMovementMethod(ScrollingMovementMethod.getInstance());
+		buttonPlay = (ImageButton)findViewById(R.id.search_detail_button_volume);
 		
 		buttonAdd.setOnClickListener(this);
+		buttonPlay.setOnClickListener(this);
 	}
 	
 	private void initData(){
 		wordInfo = (WordInfo) getIntent().getSerializableExtra("word_info");
+		mPlayer = EnglishMediaPlayer.getInstance(this);
 	}
 
 	@Override
@@ -82,8 +91,11 @@ public class SearchDetailActivity extends Activity implements OnClickListener{
 		switch(v.getId()){
 		case R.id.search_detail_button_add:
 			eOperate.updateWordIsKnownById(false, wordInfo.getId());
-			Toast.makeText(SearchDetailActivity.this, "�������ʱ��ɹ���", Toast.LENGTH_SHORT).show();
+			Toast.makeText(SearchDetailActivity.this, "���ӳɹ���", Toast.LENGTH_SHORT).show();
 			break;
+		case R.id.search_detail_button_volume:
+			mPlayer.playTheWordTune(wordInfo.getWord());
+		break;
 		}
 	}
 
@@ -93,6 +105,7 @@ public class SearchDetailActivity extends Activity implements OnClickListener{
 			eHelper.close();
 			eHelper = null;
 		}
+		mPlayer.stopPlay();
 		super.onDestroy();
 	}
 	

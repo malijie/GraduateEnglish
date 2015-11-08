@@ -2,6 +2,8 @@ package com.english.config;
 
 import android.os.Environment;
 
+import com.english.pay.PayConst;
+
 import java.io.File;
 
 /**
@@ -36,8 +38,12 @@ public class Const {
 	public static final String DIALOG_EXIT_MSG = "确定要退出吗？";
 	/**	支付对话框标题	 */
 	public static final String DIALOG_PAY_TITLE = "支付";
-	/**	支付对话框内容	 */
-	public static final String DIALOG_PAY_MSG = "支付1元便可查看最新试题";
+	/**	阅读理解支付对话框内容	 */
+	public static final String DIALOG_PAY_READING_MSG = "仅支付" + PayConst.PRICE_READING_EXMINATION +"元立即查看最新阅读真题";
+	/**	写作支付对话框内容	 */
+	public static final String DIALOG_PAY_WRITING_MSG = "仅支付" + PayConst.PRICE_WRITING_EXMINATION +"元立即查看最新写作真题";
+	/**	阅读音频支付对话框内容	 */
+	public static final String DIALOG_PAY_VOICE_MSG = "仅支付" + PayConst.PRICE_READING_VOICE +"元立即边听学";
 
 
 	//阅读理解音频文件

@@ -24,6 +24,7 @@ import com.english.model.ReadingInfo;
 import com.english.pay.PayManager;
 import com.english.phone.R;
 import com.english.config.Const;
+import com.english.util.Logger;
 import com.english.util.Util;
 
 public class ReadingFragment extends Fragment{
@@ -69,34 +70,39 @@ public class ReadingFragment extends Fragment{
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
-					int position, long id) {
+									int position, long id) {
+				PayManager payManager = new PayManager(getActivity());
 				//最新的考研试题且没有购买过则弹出对话框
-				if(position == 0 && !PayManager.isCompleteReadingPay()){
-					//点击的是最新的试题，若没付费则弹出付费对话框
-					Util.showAlertDialog(getActivity(), Const.DIALOG_PAY_TITLE, Const.DIALOG_PAY_MSG,
-							new IDialogOnClickListener() {
-						@Override
-						public void onClick() {
-							//用户点击付费，跳转到付费界面
-							new PayManager(getActivity()).handlePayEvent(PayConst.PAY_TYPE_READING, PayConst.PRICE_READING_EXMINATION);
-						}
-					});
+Logger.d("MLJ","position=" + position);
+Logger.d("MLJ","payManager.isCompleteReadingPaperPay()=" + payManager.isCompleteReadingPaperPay());
+				if (position == 0 && !payManager.isCompleteReadingPaperPay()) {
+						//点击的是最新的试题，若没付费则弹出付费对话框
+						Util.showAlertDialog(getActivity(), Const.DIALOG_PAY_TITLE, Const.DIALOG_PAY_READING_MSG,
+								new IDialogOnClickListener() {
+									@Override
+									public void onClick() {
+										//用户点击付费，跳转到付费界面
+										payManager.handlePayEvent(PayConst.PAY_TYPE_READING, PayConst.PRICE_READING_EXMINATION);
+									}
+								});
 
-				}else{
+					} else {
 
-					Intent it = new Intent(ReadingFragment.this.getActivity(),ReadingDetailActivity.class);
-					it.putExtra("reading_info", (Serializable) allReadingInfo.get(position));
-					startActivity(it);
+						Intent it = new Intent(ReadingFragment.this.getActivity(), ReadingDetailActivity.class);
+						it.putExtra("reading_info", (Serializable) allReadingInfo.get(position));
+						startActivity(it);
+					}
+
 				}
 
+
 			}
-			
-			
-		});
-	}
+
+			);
+		}
 
 
-	@Override
+		@Override
 	public void onDestroy() {
 		if(eHelper != null){
 			eHelper.close();

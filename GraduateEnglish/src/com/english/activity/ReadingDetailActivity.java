@@ -16,13 +16,18 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.english.config.Config;
 import com.english.config.Const;
+import com.english.inter.IDialogOnClickListener;
 import com.english.media.EnglishMediaPlayer;
 import com.english.model.ReadingInfo;
+import com.english.pay.PayConst;
+import com.english.pay.PayManager;
 import com.english.phone.R;
 import com.english.util.SharedPreferenceUtil;
+import com.english.util.Util;
 
 public class ReadingDetailActivity extends Activity implements OnClickListener{
 	public static final String TAG = ReadingDetailActivity.class.getSimpleName();
@@ -32,14 +37,16 @@ public class ReadingDetailActivity extends Activity implements OnClickListener{
 	private TextView textContent = null;
 	//é˜…è¯»ç†è§£ç­”æ¡ˆæ§ä»¶
 	private TextView textAnswer = null;
-	//ä¸‹ä¸€ç¯‡æŒ‰é’®
+	//ä¸‹ä¸€ç¯‡æŒ‰é’?
 	private ImageButton buttonNext = null;
-	//ä¸Šä¸€ç¯‡æŒ‰é’®
+	//ä¸Šä¸€ç¯‡æŒ‰é’?
 	private ImageButton buttonPrevious = null;
 	//éŸ³é¢‘æŒ‰é’®
 	private ImageButton buttonVolume = null;
 
 	private EnglishMediaPlayer mEnglishMediaPlayer = null;
+	//Ö§¸¶
+	private PayManager payManager = null;
 
 	//ç­”æ¡ˆæŒ‰é’®
 	private Button buttonAnswer = null;
@@ -65,6 +72,7 @@ public class ReadingDetailActivity extends Activity implements OnClickListener{
 		textTitle.setText(readingInfo.getTitle());
 		textContent.setText(Html.fromHtml(readingInfo.getContent()));
 		textContent.setMovementMethod(ScrollingMovementMethod.getInstance());
+		payManager = new PayManager(this);
 	}
 
 	private void initView() {
@@ -137,13 +145,39 @@ public class ReadingDetailActivity extends Activity implements OnClickListener{
 	}
 
 	/**
-	 * å¤„ç†æ’­æ”¾é˜…è¯»ç†è§£æ–‡ç« äº‹ä»¶
+	 * ²¥·Å¿¼ÑĞÕæÌâÒôÆµ
 	 */
 	private void handlePlayPassageEvent() {
-		//æ„é€ æ’­æ”¾æ–‡ä»¶åç§°
-		String playFile = Config.PLAY_READING_VOLUME_PATH + Const.READING_PART_A
+		boolean isPayed = checkPayedForReadingVoice();
+		if(!isPayed){
+			//Ã»ÓĞÖ§¸¶µ¯³öÖ§¸¶¶Ô»°¿ò
+			Util.showAlertDialog(this, Const.DIALOG_PAY_TITLE, Const.DIALOG_PAY_VOICE_MSG,
+					new IDialogOnClickListener() {
+						@Override
+						public void onClick() {
+							//ÓÃ»§µã»÷¸¶·Ñ£¬Ìø×ªµ½¸¶·Ñ½çÃæ
+							payManager.handlePayEvent(PayConst.PAY_TYPE_READING_VOICE, PayConst.PRICE_READING_VOICE);
+						}
+					});
+		}else{
+			Toast.makeText(this,"¿ªÊ¼²¥·Å", Toast.LENGTH_SHORT).show();
+			String playFile = Config.PLAY_READING_VOLUME_PATH + Const.READING_PART_A
 					+ readingInfo.getDate() + "_" + (index+1) + Const.READING_VOICE_SUFFIX;
-		mEnglishMediaPlayer.playThePassage(playFile);
+			mEnglishMediaPlayer.playThePassage(playFile);
+		}
+
+
+	}
+
+	/**
+	 * ·µ»ØÊÇ·ñÖ§¸¶
+	 * @return
+	 */
+	private boolean checkPayedForReadingVoice() {
+		if(payManager != null){
+			payManager.isCompleteReadingVoicePay();
+		}
+		return false;
 	}
 
 	private void initActionBar() {

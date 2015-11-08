@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,6 +20,7 @@ import android.widget.Toast;
 import com.english.ad.AdUtil;
 import com.english.database.EnglishDBOperate;
 import com.english.database.EnglishDatabaseHelper;
+import com.english.media.EnglishMediaPlayer;
 import com.english.model.WordInfo;
 import com.english.phone.R;
 
@@ -29,7 +31,11 @@ public class UnknownWordDetailActivity extends Activity implements OnClickListen
 	private TextView textContent = null;
 	private TextView textExample = null;
  	private Button butDelete = null;
+	//µ•¥ “Ù∆µ
+	private ImageButton buttonVoice = null;
 // 	private LinearLayout adLayout = null;
+	//“Ù∆µ≤•∑≈√ΩÃÂ¿‡
+	EnglishMediaPlayer mPlayer = null;
  	private EnglishDatabaseHelper eHelper = null;
  	private EnglishDBOperate eOperate = null;
  	private boolean isDeleted = false;
@@ -61,6 +67,8 @@ public class UnknownWordDetailActivity extends Activity implements OnClickListen
 		textSymbol = (TextView) super.findViewById(R.id.unkonwn_words_detail_text_symbol);
 		textContent = (TextView) super.findViewById(R.id.unkonwn_words_detail_text_content);
 		butDelete = (Button) super.findViewById(R.id.unkonwn_words_detail_button_delete);
+		buttonVoice = (ImageButton) super.findViewById(R.id.unkonwn_words_detail_button_volume);
+		buttonVoice.setOnClickListener(this);
 //		adLayout = (LinearLayout) super.findViewById(R.id.unkonwn_words_detail_layout_ad);
 		butDelete.setOnClickListener(this);
 	}
@@ -69,6 +77,7 @@ public class UnknownWordDetailActivity extends Activity implements OnClickListen
 		mWordInfo = (WordInfo) getIntent().getSerializableExtra("wordinfo");
 		eHelper = new EnglishDatabaseHelper(this);
 		eOperate = new EnglishDBOperate(eHelper.getWritableDatabase(), this);
+		mPlayer = EnglishMediaPlayer.getInstance(UnknownWordDetailActivity.this);
 	}
 
 	@Override
@@ -77,24 +86,29 @@ public class UnknownWordDetailActivity extends Activity implements OnClickListen
 		case R.id.unkonwn_words_detail_button_delete:
 			if(!isDeleted){
 				eOperate.updateUnknownWordStatusById(mWordInfo.getId());
-				Toast.makeText(UnknownWordDetailActivity.this,"Â∑≤Âà†Èô§!", Toast.LENGTH_SHORT).show();
+				Toast.makeText(UnknownWordDetailActivity.this,"“—…æ≥˝!", Toast.LENGTH_SHORT).show();
 				isDeleted = true;
 				UnknownWordDetailActivity.this.finish();
 				Intent it = new Intent(UnknownWordDetailActivity.this,UnknownWordActivity.class);
 				startActivity(it);	
 				UnknownWordDetailActivity.this.finish();
 			}
-			
+			break;
+		case R.id.unkonwn_words_detail_button_volume:
+				mPlayer.playTheWordTune(mWordInfo.getWord());
 			break;
 		}
 	}
 
 	@Override
 	protected void onDestroy() {
+		//πÿ±’ ˝æ›ø‚
 		if(eHelper != null){
 			eHelper.close();
 			eHelper = null;
 		}
+		//πÿ±’√ΩÃÂ
+		mPlayer.stopPlay();
 		super.onDestroy();
 	}
 	
@@ -124,5 +138,7 @@ public class UnknownWordDetailActivity extends Activity implements OnClickListen
 		menuInflater.inflate(R.menu.actionbar_item_detail, menu);
 		return super.onCreateOptionsMenu(menu);
 	}
+
+
 
 }

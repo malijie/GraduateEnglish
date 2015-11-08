@@ -6,8 +6,9 @@ import android.os.Message;
 import android.widget.Toast;
 
 import com.english.English;
+import com.english.database.EnglishDBOperate;
+import com.english.database.EnglishDatabaseHelper;
 import com.english.util.Logger;
-import com.english.util.SharedPreferenceUtil;
 import com.english.util.Util;
 import com.wanpu.pay.PayConnect;
 import com.wanpu.pay.PayResultListener;
@@ -21,11 +22,14 @@ public class PayManager {
     private static final String TAG = PayManager.class.getSimpleName();
     public static PayManager mPayManager = null;
     private static Context mContext = null;
+    //数据库操作类
+    private static EnglishDBOperate mDBOperator = null;
+
     //支付结果消息－－失败
-    private static final int PAY_RESULT_MSG_FAILED = 0;
+    private static final int PAY_RESULT_MSG_FAILED = 1;
 
     //支付结果消息－－成功
-    private static final int PAY_RESULT_MSG_SUCCESS = 1;
+    private static final int PAY_RESULT_MSG_SUCCESS = 0;
 
     //支付结果  0代表成功，-1代表失败
     private int mPayResultCode = -1;
@@ -33,8 +37,12 @@ public class PayManager {
     //支付商品类型
     private int mPayGoodsType;
 
+    
+
     public PayManager(Context context){
         mContext = context;
+        EnglishDatabaseHelper eHelper = new EnglishDatabaseHelper(mContext);
+        mDBOperator = new EnglishDBOperate(eHelper.getWritableDatabase(),mContext);
     }
 
     /**
@@ -42,7 +50,7 @@ public class PayManager {
      */
     public static void init(Context context) {
         PayConnect.getInstance(PayConst.APP_ID, PayConst.APP_ID, context);
-    }
+     }
 
     /**
      *
@@ -50,13 +58,18 @@ public class PayManager {
      * @param price 价格
      */
     public void handlePayEvent(int type, float price) {
+
         //设置当前支付类型
         setPayGoodsType(type);
         switch (type){
             case PayConst.PAY_TYPE_READING:
-                pay(mContext, PayConst.GOODS_ITEM_NAME, PayConst.GOODS_ITEM_DESCRIPTION, price);
+                pay(mContext, PayConst.GOODS_ITEM_READING_NAME, PayConst.GOODS_ITEM_READING_DESCRIPTION, price);
                 break;
             case PayConst.PAY_TYPE_WRITTING:
+                pay(mContext, PayConst.GOODS_ITEM_WRITING_NAME, PayConst.GOODS_ITEM_WRITING_DESCRIPTION, price);
+                break;
+            case PayConst.PAY_TYPE_READING_VOICE:
+                pay(mContext, PayConst.PAY_GOODS_ITEM_READING_VOICE, PayConst.GOODS_ITEM_READING_VOICE_DESCRIPTION, price);
                 break;
         }
 
@@ -94,12 +107,32 @@ public class PayManager {
      *保存阅读支付结果
      */
     private void savePayReadingResult(){
-       if(mPayResultCode==0){
-           SharedPreferenceUtil.saveReadingPayResult(mContext,true);
+       if(mPayResultCode==PAY_RESULT_MSG_SUCCESS){
+           mDBOperator.savePayResult(PayConst.PAY_GOODS_ITEM_READING_PAPER,true);
        }else{
-           SharedPreferenceUtil.saveReadingPayResult(mContext, false);
-       }
-        mPayResultCode = -1;
+            mDBOperator.savePayResult(PayConst.PAY_GOODS_ITEM_READING_PAPER,false);
+        }
+    }
+
+    /**
+     *保存写作支付结果
+     */
+    private void savePayWritingResult(){
+        if(mPayResultCode==PAY_RESULT_MSG_SUCCESS){
+            mDBOperator.savePayResult(PayConst.PAY_GOODS_ITEM_WRITING_PAPER,true);
+        }else{
+            mDBOperator.savePayResult(PayConst.PAY_GOODS_ITEM_WRITING_PAPER,false);
+        }
+    }
+    /**
+     *保存阅读音频支付结果
+     */
+    private void savePayReadingVoiceResult(){
+        if(mPayResultCode==PAY_RESULT_MSG_SUCCESS){
+            mDBOperator.savePayResult(PayConst.PAY_GOODS_ITEM_READING_VOICE,true);
+        }else{
+            mDBOperator.savePayResult(PayConst.PAY_GOODS_ITEM_READING_VOICE,false);
+        }
     }
 
     private class PayResultHandler extends Handler{
@@ -112,7 +145,9 @@ public class PayManager {
                     if(getPayGoodsType() == PayConst.PAY_TYPE_READING){
                         savePayReadingResult();
                     }else if(getPayGoodsType() == PayConst.PAY_TYPE_WRITTING){
-
+                        savePayWritingResult();
+                    }else if(getPayGoodsType() == PayConst.PAY_TYPE_READING_VOICE){
+                        savePayReadingVoiceResult();
                     }
 
                     break;
@@ -157,8 +192,33 @@ public class PayManager {
      * 是否完成了阅读支付
      * @return
      */
-    public static boolean isCompleteReadingPay(){
-        return SharedPreferenceUtil.getReadingPayResult(English.mContext);
+    public boolean isCompleteReadingPaperPay(){
+        if(mDBOperator != null){
+            return mDBOperator.getPayResult(PayConst.PAY_GOODS_ITEM_READING_PAPER);
+        }
+        return false;
+    }
+
+    /**
+     * 是否完成了阅读读音支付
+     * @return
+     */
+    public boolean isCompleteReadingVoicePay(){
+        if(mDBOperator != null){
+            return mDBOperator.getPayResult(PayConst.PAY_GOODS_ITEM_READING_VOICE);
+        }
+        return false;
+    }
+
+    /**
+     * 是否完成了写作支付
+     * @return
+     */
+    public boolean isCompleteWritingPaperPay(){
+        if(mDBOperator != null){
+            return mDBOperator.getPayResult(PayConst.PAY_GOODS_ITEM_WRITING_PAPER);
+        }
+        return false;
     }
 
 }

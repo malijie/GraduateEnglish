@@ -14,10 +14,15 @@ import android.widget.ListView;
 
 import com.english.activity.WrittingDetailActivity;
 import com.english.adapter.WrittingAdapter;
+import com.english.config.Const;
 import com.english.database.EnglishDBOperate;
 import com.english.database.EnglishDatabaseHelper;
+import com.english.inter.IDialogOnClickListener;
 import com.english.model.WrittingInfo;
+import com.english.pay.PayConst;
+import com.english.pay.PayManager;
 import com.english.phone.R;
+import com.english.util.Util;
 
 public class WritingFragment extends Fragment{
 	private ListView writtingList = null;
@@ -53,12 +58,27 @@ public class WritingFragment extends Fragment{
 	private void initView() {
 		writtingList = (ListView) viewWriting.findViewById(R.id.listview_writting);
 		writtingList.setOnItemClickListener(new OnItemClickListener() {
- 
+
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
-				Intent it = new Intent(getActivity(),WrittingDetailActivity.class);
-				it.putExtra("writting_info", writtingInfos.get(position));
-				startActivity(it);
+				PayManager payManager = new PayManager(getActivity());
+				if (position == 0 && !payManager.isCompleteWritingPaperPay()) {
+					//点击的是最新的试题，若没付费则弹出付费对话框
+					Util.showAlertDialog(getActivity(), Const.DIALOG_PAY_TITLE, Const.DIALOG_PAY_WRITING_MSG,
+							new IDialogOnClickListener() {
+								@Override
+								public void onClick() {
+									//用户点击付费，跳转到付费界面
+									payManager.handlePayEvent(PayConst.PAY_TYPE_WRITTING, PayConst.PRICE_WRITING_EXMINATION);
+								}
+							});
+
+				} else {
+					Intent it = new Intent(getActivity(),WrittingDetailActivity.class);
+					it.putExtra("writting_info", writtingInfos.get(position));
+					startActivity(it);
+				}
+
 			}
 		});
 	}

@@ -15,6 +15,7 @@ import cn.waps.AppConnect;
 import com.english.English;
 import com.english.config.Config;
 import com.english.config.Const;
+import com.english.pay.PayManager;
 import com.english.phone.R;
 import com.english.util.Logger;
 import com.english.util.SharedPreferenceUtil;

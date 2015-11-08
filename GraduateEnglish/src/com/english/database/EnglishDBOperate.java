@@ -1,10 +1,5 @@
 package com.english.database;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -14,6 +9,12 @@ import android.widget.Toast;
 import com.english.model.ReadingInfo;
 import com.english.model.WordInfo;
 import com.english.model.WrittingInfo;
+import com.english.util.Logger;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class EnglishDBOperate {
 	private SQLiteDatabase db = null;
@@ -130,7 +131,7 @@ public class EnglishDBOperate {
 	
 	/**
 	 * 根据课程号查出本课程中单词信息
-	 * @param lesson课程号
+	 * @param lesson
 	 * @return
 	 */
 	public List<WordInfo> getWordsByLesson(int lesson){
@@ -164,7 +165,7 @@ public class EnglishDBOperate {
 	
 	/**
 	 * 更新单词是否为生词状态
-	 * @param id id号
+	 * @param index id号
 	 */
 	public void updateWordIsStrangerById(boolean isStranger, int index){
 		db.beginTransaction();
@@ -593,5 +594,57 @@ public class EnglishDBOperate {
 		}
 		return acCount;
 	}
-	
+
+	/**
+	 *保存支付结果
+	 * @param isPayedSuccess 支付结果
+	 */
+	public void savePayResult(String goodsName,boolean isPayedSuccess){
+		db.beginTransaction();
+		String id = String.valueOf(System.currentTimeMillis());
+		String time = id;
+		String sql = "insert into pay values("+"'" + id + "','"
+								+ goodsName + "','" + isPayedSuccess +
+								"','" + time + "')";
+
+		db.execSQL(sql);
+		db.setTransactionSuccessful();
+		db.endTransaction();
+	}
+
+	/**
+	 * 根据商品名称查询当前产品是否已经支付
+	 * @param goodsName
+	 * @return
+	 */
+	public boolean getPayResult(String goodsName){
+
+		Cursor result = null;
+		boolean isPayed = false;
+		try{
+			db.beginTransaction();
+			String sql = "select * from pay where goods_name='" + goodsName + "'";
+			result = db.rawQuery(sql,null);
+			while(result.moveToNext()){
+				String strIsPayed = result.getString(result.getColumnIndex("is_payed"));
+				isPayed = Boolean.valueOf(strIsPayed);
+Logger.d("MLJ","isPayed=" + isPayed);
+				if(isPayed == true){
+					break;
+				}
+			}
+			db.setTransactionSuccessful();
+
+		}catch (Exception e){
+			e.printStackTrace();
+		}finally {
+			if(result != null){
+				result.close();
+			}
+		}
+		db.endTransaction();
+Logger.d("MLJ", "return isPayed=" + isPayed);
+
+		return isPayed;
+	}
 }	
