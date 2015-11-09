@@ -29,7 +29,7 @@ public class Const {
 	public static final int READING_BEGIN_DATE = 1994;
 	
 	/**	 阅读理解结束年份	 */
-	public static final int READING_END_DATE = 2014;
+	public static final int READING_END_DATE = 2015;
 
 	//----------------对话框相关常量---------------------
 	/**	退出对话框标题	 */
@@ -39,11 +39,11 @@ public class Const {
 	/**	支付对话框标题	 */
 	public static final String DIALOG_PAY_TITLE = "支付";
 	/**	阅读理解支付对话框内容	 */
-	public static final String DIALOG_PAY_READING_MSG = "仅支付" + PayConst.PRICE_READING_EXMINATION +"元立即查看最新阅读真题";
+	public static final String DIALOG_PAY_READING_MSG = "仅需" + PayConst.PRICE_READING_EXMINATION +"元立即查看最新阅读真题哦";
 	/**	写作支付对话框内容	 */
-	public static final String DIALOG_PAY_WRITING_MSG = "仅支付" + PayConst.PRICE_WRITING_EXMINATION +"元立即查看最新写作真题";
+	public static final String DIALOG_PAY_WRITING_MSG = "仅需" + PayConst.PRICE_WRITING_EXMINATION +"元立即查看最新写作真题哦";
 	/**	阅读音频支付对话框内容	 */
-	public static final String DIALOG_PAY_VOICE_MSG = "仅支付" + PayConst.PRICE_READING_VOICE +"元立即边听学";
+	public static final String DIALOG_PAY_VOICE_MSG = "仅需" + PayConst.PRICE_READING_VOICE +"元立即边听边学哦";
 
 
 	//阅读理解音频文件

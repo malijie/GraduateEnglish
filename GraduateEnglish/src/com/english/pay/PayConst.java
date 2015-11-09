@@ -8,11 +8,11 @@ public class PayConst {
     //App ID
     public static final String APP_ID = "469378b902a681c98f5a095ddccf8223";
     //阅读商品定价
-    public static final float PRICE_READING_EXMINATION = (float)0.01;
+    public static final float PRICE_READING_EXMINATION = (float) 2;
     //写作商品定价
-    public static final float PRICE_WRITING_EXMINATION = (float)0.02;
+    public static final float PRICE_WRITING_EXMINATION = (float) 2;
     //阅读读音商品定价
-    public static final float PRICE_READING_VOICE = (float)0.03;
+    public static final float PRICE_READING_VOICE = (float) 6;
 
     //商品名称--阅读
     public static final String GOODS_ITEM_READING_NAME = "最新考研英语阅读真题";

@@ -73,8 +73,6 @@ public class ReadingFragment extends Fragment{
 									int position, long id) {
 				PayManager payManager = new PayManager(getActivity());
 				//最新的考研试题且没有购买过则弹出对话框
-Logger.d("MLJ","position=" + position);
-Logger.d("MLJ","payManager.isCompleteReadingPaperPay()=" + payManager.isCompleteReadingPaperPay());
 				if (position == 0 && !payManager.isCompleteReadingPaperPay()) {
 						//点击的是最新的试题，若没付费则弹出付费对话框
 						Util.showAlertDialog(getActivity(), Const.DIALOG_PAY_TITLE, Const.DIALOG_PAY_READING_MSG,
@@ -87,7 +85,6 @@ Logger.d("MLJ","payManager.isCompleteReadingPaperPay()=" + payManager.isComplete
 								});
 
 					} else {
-
 						Intent it = new Intent(ReadingFragment.this.getActivity(), ReadingDetailActivity.class);
 						it.putExtra("reading_info", (Serializable) allReadingInfo.get(position));
 						startActivity(it);

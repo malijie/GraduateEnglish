@@ -175,7 +175,7 @@ public class ReadingDetailActivity extends Activity implements OnClickListener{
 	 */
 	private boolean checkPayedForReadingVoice() {
 		if(payManager != null){
-			payManager.isCompleteReadingVoicePay();
+			return payManager.isCompleteReadingVoicePay();
 		}
 		return false;
 	}

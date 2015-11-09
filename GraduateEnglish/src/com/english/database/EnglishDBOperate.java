@@ -407,9 +407,11 @@ public class EnglishDBOperate {
 			db.beginTransaction();
 			sql = "select * from reading where date=" + date;
 			result = db.rawQuery(sql,null);
+
 			readInfoList = new ArrayList<ReadingInfo>();
 			for(result.moveToFirst(); !result.isAfterLast(); result.moveToNext()){
 				ReadingInfo readingInfo = new ReadingInfo();
+
 				readingInfo.setId(Integer.parseInt(result.getString(result.getColumnIndex("id"))));
 				readingInfo.setTitle(result.getString(result.getColumnIndex("title")));
 				readingInfo.setDate(Integer.parseInt(result.getString(result.getColumnIndex("date"))));
@@ -628,7 +630,6 @@ public class EnglishDBOperate {
 			while(result.moveToNext()){
 				String strIsPayed = result.getString(result.getColumnIndex("is_payed"));
 				isPayed = Boolean.valueOf(strIsPayed);
-Logger.d("MLJ","isPayed=" + isPayed);
 				if(isPayed == true){
 					break;
 				}
@@ -643,7 +644,6 @@ Logger.d("MLJ","isPayed=" + isPayed);
 			}
 		}
 		db.endTransaction();
-Logger.d("MLJ", "return isPayed=" + isPayed);
 
 		return isPayed;
 	}

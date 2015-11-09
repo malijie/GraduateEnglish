@@ -62,7 +62,7 @@ public class WritingFragment extends Fragment{
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
 				PayManager payManager = new PayManager(getActivity());
-				if (position == 0 && !payManager.isCompleteWritingPaperPay()) {
+				if ((position == 0 || position ==1) && !payManager.isCompleteWritingPaperPay()) {
 					//点击的是最新的试题，若没付费则弹出付费对话框
 					Util.showAlertDialog(getActivity(), Const.DIALOG_PAY_TITLE, Const.DIALOG_PAY_WRITING_MSG,
 							new IDialogOnClickListener() {

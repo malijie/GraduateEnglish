@@ -69,7 +69,7 @@ public class PayManager {
                 pay(mContext, PayConst.GOODS_ITEM_WRITING_NAME, PayConst.GOODS_ITEM_WRITING_DESCRIPTION, price);
                 break;
             case PayConst.PAY_TYPE_READING_VOICE:
-                pay(mContext, PayConst.PAY_GOODS_ITEM_READING_VOICE, PayConst.GOODS_ITEM_READING_VOICE_DESCRIPTION, price);
+                pay(mContext, PayConst.GOODS_ITEM_READING_VOICE, PayConst.GOODS_ITEM_READING_VOICE_DESCRIPTION, price);
                 break;
         }
 
